@@ -1,2 +1,2 @@
 # SmartBuy
-web shop
+web api for web shop "Smart Buy"

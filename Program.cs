@@ -6,7 +6,18 @@ using SmartBuyApi.Data.Models;
 using SmartBuyApi.Data.Services.UserService;
 using SmartBuyApi.DataBase;
 using SmartBuyApi.DataBase.Tables;
+<<<<<<< HEAD
 using System.Text.Json.Serialization;
+=======
+using SmartBuyApi.Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using SmartBuyApi.Data.Services;
+using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.FileProviders;
+>>>>>>> 56bbb87620c79ef3720b012d5a925e67d1cf3b74
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,6 +93,7 @@ var connectionString = builder.Configuration.GetConnectionString("ShopApi") ?? t
 	});
 }
 var app = builder.Build();
+<<<<<<< HEAD
 
 {
 	if (app.Environment.IsDevelopment())
@@ -89,6 +101,29 @@ var app = builder.Build();
 		app.UseSwagger();
 		app.UseSwaggerUI();
 	}
+=======
+app.UseCors(conf =>
+    conf.AllowAnyHeader()
+        .AllowAnyMethod()
+        .WithOrigins("http://localhost:3000"));
+//.AllowAnyOrigin());
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+	app.UseSwagger();
+	app.UseSwaggerUI();
+
+    app.UseDeveloperExceptionPage();
+}
+var dir = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+if (!Directory.Exists(dir))
+    Directory.CreateDirectory(dir);
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(dir),
+    RequestPath = "/Images"
+});
+>>>>>>> 56bbb87620c79ef3720b012d5a925e67d1cf3b74
 
 	app.UseHttpsRedirection();
 	app.UseCors(MyAllowSpecificOrigins);

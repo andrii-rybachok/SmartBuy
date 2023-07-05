@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartBuyApi.DataBase;
 
@@ -11,9 +12,11 @@ using SmartBuyApi.DataBase;
 namespace SmartBuyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230705095408_productAndCategory_update")]
+    partial class productAndCategory_update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,47 +162,6 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedByIp")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Expires")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ReasonRevoked")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReplacedByToken")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Revoked")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RevokedByIp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SmartUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SmartUserId");
-
-                    b.ToTable("Tokens");
-=======
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -438,7 +400,6 @@ namespace SmartBuyApi.Migrations
                             Price = 1199,
                             ShortDescription = "figna"
                         });
->>>>>>> 56bbb87620c79ef3720b012d5a925e67d1cf3b74
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -599,13 +560,6 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
-                {
-                    b.HasOne("SmartBuyApi.DataBase.Tables.SmartUser", null)
-                        .WithMany("RefreshTokens")
-                        .HasForeignKey("SmartUserId");
-=======
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
                 {
                     b.HasOne("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", "Category")
@@ -615,7 +569,6 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
->>>>>>> 56bbb87620c79ef3720b012d5a925e67d1cf3b74
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -632,8 +585,6 @@ namespace SmartBuyApi.Migrations
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.SmartUser", b =>
                 {
                     b.Navigation("Adresses");
-
-                    b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618
         }
