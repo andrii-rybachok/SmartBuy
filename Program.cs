@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using SmartBuyApi.Data.Services;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -79,13 +80,27 @@ builder.Services
 		};
 	});
 var app = builder.Build();
-
+app.UseCors(conf =>
+    conf.AllowAnyHeader()
+        .AllowAnyMethod()
+        .WithOrigins("http://localhost:3000"));
+//.AllowAnyOrigin());
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();
+
+    app.UseDeveloperExceptionPage();
 }
+var dir = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+if (!Directory.Exists(dir))
+    Directory.CreateDirectory(dir);
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(dir),
+    RequestPath = "/Images"
+});
 
 app.UseHttpsRedirection();
 
