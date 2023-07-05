@@ -1,3 +1,2 @@
 # SmartBuy
-web shop
-test by Slobodeniuk
+web api for web shop "Smart Buy"
