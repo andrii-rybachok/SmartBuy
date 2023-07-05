@@ -1,24 +1,26 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication;
+using Microsoft.OpenApi.Models;
+using SmartBuyApi.Authorization;
+using SmartBuyApi.Data.Models;
+using SmartBuyApi.Data.Services.UserService;
 using SmartBuyApi.DataBase;
 using SmartBuyApi.DataBase.Tables;
-using SmartBuyApi.Data.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using SmartBuyApi.Data.Services;
-using Microsoft.OpenApi.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+var MyAllowSpecificOrigins = "LocalHostPolicy";
 var connectionString = builder.Configuration.GetConnectionString("ShopApi") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-	options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<SmartUser>(options => {
+{
+	var services = builder.Services;
+	services.AddDbContext<ApplicationDbContext>(options =>
+		options.UseSqlServer(connectionString));
+
+	services.AddDefaultIdentity<SmartUser>(options =>
+	{
 		options.SignIn.RequireConfirmedAccount = false;
 		options.User.RequireUniqueEmail = true;
 		options.Password.RequireDigit = false;
@@ -27,70 +29,71 @@ builder.Services.AddDefaultIdentity<SmartUser>(options => {
 		options.Password.RequireUppercase = false;
 		options.Password.RequireLowercase = false;
 	}).AddRoles<IdentityRole>()
-	.AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddProblemDetails();
-builder.Services.AddAutoMapper(typeof(ApplicationMapper));
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(option =>
-{
-	option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
-	option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+		.AddEntityFrameworkStores<ApplicationDbContext>();
+	services.AddCors(options =>
 	{
-		In = ParameterLocation.Header,
-		Description = "Please enter a valid token",
-		Name = "Authorization",
-		Type = SecuritySchemeType.Http,
-		BearerFormat = "JWT",
-		Scheme = "Bearer"
+		options.AddPolicy(name: MyAllowSpecificOrigins,
+						  policy =>
+						  {
+							  policy.WithOrigins("http://localhost:3000").AllowAnyMethod();
+							  policy.WithOrigins("http://localhost:3000").AllowAnyHeader();
+							  policy.WithOrigins("http://localhost:3000").AllowAnyOrigin();
+							  policy.WithOrigins("http://localhost:3000").AllowCredentials();
+
+
+						  });
 	});
-	option.AddSecurityRequirement(new OpenApiSecurityRequirement
+	services.AddProblemDetails();
+
+	services.AddAutoMapper(typeof(ApplicationMapper));
+	services.AddControllers()
+		.AddJsonOptions(x => x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
+	services.AddEndpointsApiExplorer();
+	services.AddScoped<IJwtUtils, JwtUtils>();
+	services.AddScoped<IUserService, UserService>();
+	services.AddHttpContextAccessor();
+
+	services.AddSwaggerGen(option =>
 	{
+		option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
+		option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
 		{
-			new OpenApiSecurityScheme
+			In = ParameterLocation.Header,
+			Description = "Please enter a valid token",
+			Name = "Authorization",
+			Type = SecuritySchemeType.Http,
+			BearerFormat = "JWT",
+			Scheme = "Bearer"
+		});
+		option.AddSecurityRequirement(new OpenApiSecurityRequirement
+		{
 			{
-				Reference = new OpenApiReference
+				new OpenApiSecurityScheme
 				{
-					Type=ReferenceType.SecurityScheme,
-					Id="Bearer"
-				}
-			},
-			new string[]{}
-		}
+					Reference = new OpenApiReference
+					{
+						Type=ReferenceType.SecurityScheme,
+						Id="Bearer"
+					}
+				},
+				new string[]{}
+			}
+		});
 	});
-});
-builder.Services.AddScoped<TokenService>();
-builder.Services
-	.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-	.AddJwtBearer(options =>
-	{
-		options.TokenValidationParameters = new TokenValidationParameters()
-		{
-			ClockSkew = TimeSpan.Zero,
-			ValidateIssuer = true,
-			ValidateAudience = true,
-			ValidateLifetime = true,
-			ValidateIssuerSigningKey = true,
-			ValidIssuer = builder.Configuration["Jwt:Issuer"],
-			ValidAudience = builder.Configuration["Jwt:Audience"],
-			IssuerSigningKey = new SymmetricSecurityKey(
-				Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])
-			),
-		};
-	});
+}
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
 {
-	app.UseSwagger();
-	app.UseSwaggerUI();
+	if (app.Environment.IsDevelopment())
+	{
+		app.UseSwagger();
+		app.UseSwaggerUI();
+	}
+
+	app.UseHttpsRedirection();
+	app.UseCors(MyAllowSpecificOrigins);
+	app.UseMiddleware<JwtMiddleware>();
+	app.MapControllers();
+
+	app.Run();
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-app.UseAuthentication();
-app.MapControllers();
-
-app.Run();

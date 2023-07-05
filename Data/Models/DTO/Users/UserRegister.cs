@@ -1,7 +1,7 @@
 ﻿using Duende.IdentityServer.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace SmartBuyApi.Data.Models.DTO
+namespace SmartBuyApi.Data.Models.DTO.Users
 {
     public class UserRegister
     {

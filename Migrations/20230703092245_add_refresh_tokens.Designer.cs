@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartBuyApi.DataBase;
 
@@ -11,9 +12,11 @@ using SmartBuyApi.DataBase;
 namespace SmartBuyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230703092245_add_refresh_tokens")]
+    partial class add_refresh_tokens
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,7 +162,7 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
+            modelBuilder.Entity("SmartBuyApi.Data.Models.Entities.RefreshToken", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -175,15 +178,18 @@ namespace SmartBuyApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ReasonRevoked")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ReplacedByToken")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("Revoked")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("RevokedByIp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SmartUserId")
@@ -358,7 +364,7 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
+            modelBuilder.Entity("SmartBuyApi.Data.Models.Entities.RefreshToken", b =>
                 {
                     b.HasOne("SmartBuyApi.DataBase.Tables.SmartUser", null)
                         .WithMany("RefreshTokens")
