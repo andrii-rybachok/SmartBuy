@@ -159,7 +159,7 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-<<<<<<< HEAD
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
                 {
                     b.Property<string>("Id")
@@ -199,9 +199,8 @@ namespace SmartBuyApi.Migrations
                     b.HasIndex("SmartUserId");
 
                     b.ToTable("Tokens");
-=======
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
-                {
+
+            
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
@@ -438,7 +437,7 @@ namespace SmartBuyApi.Migrations
                             Price = 1199,
                             ShortDescription = "figna"
                         });
->>>>>>> 56bbb87620c79ef3720b012d5a925e67d1cf3b74
+
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -599,15 +598,13 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
                 });
 
-<<<<<<< HEAD
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
                 {
                     b.HasOne("SmartBuyApi.DataBase.Tables.SmartUser", null)
                         .WithMany("RefreshTokens")
                         .HasForeignKey("SmartUserId");
-=======
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
-                {
+
                     b.HasOne("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
@@ -615,7 +612,7 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
->>>>>>> 56bbb87620c79ef3720b012d5a925e67d1cf3b74
+
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
