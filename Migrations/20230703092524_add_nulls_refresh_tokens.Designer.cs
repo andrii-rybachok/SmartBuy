@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartBuyApi.DataBase;
 
@@ -11,9 +12,11 @@ using SmartBuyApi.DataBase;
 namespace SmartBuyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230703092524_add_nulls_refresh_tokens")]
+    partial class add_nulls_refresh_tokens
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -159,7 +162,6 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
                 {
                     b.Property<string>("Id")
@@ -199,245 +201,6 @@ namespace SmartBuyApi.Migrations
                     b.HasIndex("SmartUserId");
 
                     b.ToTable("Tokens");
-
-            
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateLastEdit")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(4000)
-                        .HasColumnType("nvarchar(4000)");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("tbl_Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8337),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "description",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Комп'ютери та ноутбуки"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8429),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "description",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Смартфони"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8435),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "description",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Побутова техніка"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8440),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "description",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Дача, сад, город"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8444),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "description",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Спорт і захоплення"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8454),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "description",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Офіс, школа, книги"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8459),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "description test",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "test"
-                        });
-                });
-
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CategoryId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateLastEdit")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(4000)
-                        .HasColumnType("nvarchar(4000)");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ShortDescription")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("tbl_Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8595),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "test",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "ПК Х123434",
-                            Price = 436765,
-                            ShortDescription = "figna"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 2,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8606),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Ми представляємо вам найпотужнішу, саму оснащену, ударотривкий та найефективнішу версію смартфона 2021 року від румунської компанії iHunt .",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "iHunt Titan P13000 PRO 2021",
-                            Price = 13940,
-                            ShortDescription = "figna"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 3,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8611),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Холодильники з системою NeoFrost ",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "BEKO CNA295K20XP",
-                            Price = 10999,
-                            ShortDescription = "figna"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 4,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8616),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Ланцюгова пила Bosch UniversalChain ",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Bosch UniversalChain 40",
-                            Price = 3958,
-                            ShortDescription = "figna"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryId = 5,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8620),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Велосипед Champion Spark 29 ",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Champion Spark 29 19.5 Black-neon yellow-white",
-                            Price = 5460,
-                            ShortDescription = "figna"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CategoryId = 6,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8625),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "ВНабір паперу офісного Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла ",
-                            Image = "1.jpg",
-                            IsDelete = false,
-                            Name = "Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла",
-                            Price = 1199,
-                            ShortDescription = "figna"
-                        });
-
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -598,21 +361,11 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
                 });
 
-
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
                 {
                     b.HasOne("SmartBuyApi.DataBase.Tables.SmartUser", null)
                         .WithMany("RefreshTokens")
                         .HasForeignKey("SmartUserId");
-
-                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>

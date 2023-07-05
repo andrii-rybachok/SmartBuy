@@ -24,9 +24,7 @@
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
-  </ItemGroup>
 
-  <ItemGroup>
     <Folder Include="Data\Services\" />
     <Folder Include="Models\" />
   </ItemGroup>

@@ -1,30 +1,33 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using SmartBuyApi.Data.Models.DTO;
+using SmartBuyApi.Authorization;
+using SmartBuyApi.Data.Models.DTO.Users;
 using SmartBuyApi.Data.Services;
+using SmartBuyApi.Data.Services.UserService;
 using SmartBuyApi.DataBase.Tables;
 
 namespace SmartBuyApi.Controllers
 {
-    [Route("api/shop")]
+	[Authorize]
+	[Route("api/shop")]
 	[ApiController]
 	public class IdentityController : ControllerBase
 	{
 		private readonly UserManager<SmartUser> _userManager;
 		private readonly RoleManager<IdentityRole> _roleManager;
 		private readonly SignInManager<SmartUser> _signInManager;
-		private readonly TokenService _tokenService;
+		private readonly IUserService _userService;
 		private readonly IMapper _mapper;
-		public IdentityController(IMapper mapper, SignInManager<SmartUser> signInManager, RoleManager<IdentityRole> manager, UserManager<SmartUser> userManager, TokenService tokenService)
+		public IdentityController(IMapper mapper, SignInManager<SmartUser> signInManager, RoleManager<IdentityRole> manager,
+			UserManager<SmartUser> userManager,IUserService userService)
 		{
 			_mapper = mapper;
 			_userManager = userManager;
 			_roleManager = manager;
 			_signInManager = signInManager;
-			_tokenService = tokenService;
+			_userService = userService;
 		}
 
 		[HttpPost("roleCreator")]
@@ -52,6 +55,39 @@ namespace SmartBuyApi.Controllers
 
 		}
 
+		[AllowAnonymous]
+		[HttpPost("refresh-token")]
+		public IActionResult RefreshToken()
+		{
+			var refreshToken = Request.Cookies["refreshToken"];
+			var response = _userService.RefreshToken(refreshToken, ipAddress());
+			setTokenCookie(response.RefreshToken);
+			return Ok(response);
+		}
+		[AllowAnonymous]
+		[HttpPost("log-out")]
+		public IActionResult LogOut()
+		{
+			var token = Request.Cookies["refreshToken"];
+
+			if (string.IsNullOrEmpty(token))
+				return BadRequest(new { message = "Token is required" });
+
+
+			_userService.RevokeToken(token, ipAddress());
+			removeToken(token);
+			return Ok(new { message = "Logged out" });
+		}
+
+		
+
+		[HttpGet]
+		public IActionResult GetAll()
+		{
+			var users = _userService.GetAll();
+			return Ok(users);
+		}
+		[AllowAnonymous]
 		[HttpPost("Register")]
 		public async Task<IActionResult> Register(UserRegister userModel)
 		{
@@ -73,31 +109,40 @@ namespace SmartBuyApi.Controllers
 			await _userManager.AddToRoleAsync(user, "customer");
 			return Created("", user);
 		}
-		[HttpPost("SignIn")]
-		public async Task<IActionResult> SignIn(UserLogin userModel)
+
+		[AllowAnonymous]
+		[HttpPost("authenticate")]
+		public async Task<IActionResult> Authenticate(UserLogin request)
 		{
-			if (ModelState.IsValid)
+			
+			var response =await _userService.Authenticate(request, ipAddress());
+			setTokenCookie(response.RefreshToken);
+			return Ok(response);
+
+		}
+		private void setTokenCookie(string token)
+		{
+			
+			var cookieOptions = new CookieOptions
 			{
-				var user = await _userManager.FindByEmailAsync(userModel.Email);
-				var result = await _signInManager.PasswordSignInAsync(user, userModel.Password, false, false);
-				if (result.Succeeded)
-				{
+				HttpOnly = true,
+				Expires = DateTime.UtcNow.AddDays(7),
+				Secure = true,
+				SameSite = SameSiteMode.None,
+			};
+			Response.Cookies.Append("refreshToken", token, cookieOptions);
+		}
 
-					var token = _tokenService.CreateToken(user);
-					return Ok(token);
-				}
-				if (result.IsLockedOut)
-				{
-					return BadRequest("User acc is locked out");
-				}
-				else
-				{
-					ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-					return BadRequest(ModelState);
-				}
-			}
-			return BadRequest(ModelState);
-
+		private void removeToken(string token)
+		{
+			Response.Cookies.Delete("refreshToken");
+		}
+		private string ipAddress()
+		{
+			if (Request.Headers.ContainsKey("X-Forwarded-For"))
+				return Request.Headers["X-Forwarded-For"];
+			else
+				return HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
 		}
 	}
 }
