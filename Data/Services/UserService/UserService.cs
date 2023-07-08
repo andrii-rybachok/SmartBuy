@@ -80,7 +80,7 @@ namespace SmartBuyApi.Data.Services.UserService
 
 			var jwtToken = _jwtUtils.GenerateJwtToken(user);
 
-			return new  UserDetails(user.Id, user.FirstName, user.LastName, user.Email, jwtToken, refreshToken.Token);
+			return new  UserDetails(user.Id, user.FirstName, user.LastName, user.Email, jwtToken, newRefreshToken.Token);
 		}
 
 		public bool RevokeToken(string token, string ipAddress)
