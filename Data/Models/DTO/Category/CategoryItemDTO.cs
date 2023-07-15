@@ -4,7 +4,7 @@ namespace SmartBuyApi.Data.Models.DTO.Category
 {
     public class CategoryItemDTO
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         //public int DisplayOrder { get; set; }
         public string Image { get; set; }

@@ -2,19 +2,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using SmartBuyApi.Authorization;
-using SmartBuyApi.Data.Models;
 using SmartBuyApi.Data.Services.UserService;
 using SmartBuyApi.DataBase;
 using SmartBuyApi.DataBase.Tables;
 using System.Text.Json.Serialization;
-using SmartBuyApi.Data.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using SmartBuyApi.Data.Services;
-using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.FileProviders;
+using SmartBuyApi.Data.Mappers;
+using SmartBuyApi.Data.Services.ShopService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,12 +47,14 @@ var connectionString = builder.Configuration.GetConnectionString("ShopApi") ?? t
 	});
 	services.AddProblemDetails();
 
-	services.AddAutoMapper(typeof(ApplicationMapper));
+	services.AddAutoMapper(typeof(AppMapProfile));
 	services.AddControllers()
 		.AddJsonOptions(x => x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
 	services.AddEndpointsApiExplorer();
 	services.AddScoped<IJwtUtils, JwtUtils>();
 	services.AddScoped<IUserService, UserService>();
+	services.AddScoped<IShopService, ShopService>();
+
 	services.AddHttpContextAccessor();
 
 	services.AddSwaggerGen(option =>

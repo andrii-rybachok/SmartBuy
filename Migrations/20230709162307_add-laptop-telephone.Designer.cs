@@ -12,8 +12,8 @@ using SmartBuyApi.DataBase;
 namespace SmartBuyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230705095408_productAndCategory_update")]
-    partial class productAndCategory_update
+    [Migration("20230709162307_add-laptop-telephone")]
+    partial class addlaptoptelephone
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -162,13 +162,102 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.FilterName", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PublicName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("tbl_FilterNames");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.FilterValue", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FilterNameId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("NumericValue")
+                        .HasColumnType("float");
+
+                    b.Property<string>("PublicValue")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StringValue")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FilterNameId");
+
+                    b.ToTable("tbl_FilterValues");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedByIp")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Expires")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReasonRevoked")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReplacedByToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Revoked")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RevokedByIp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SmartUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SmartUserId");
+
+                    b.ToTable("tbl_Tokens");
+                });
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
@@ -201,8 +290,8 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8337),
+                            Id = "imwccWSupND",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4608),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -211,8 +300,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 2,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8429),
+                            Id = "r0HHeNteua_",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4667),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -221,8 +310,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 3,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8435),
+                            Id = "sLeo04PkfFB",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4671),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -231,8 +320,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 4,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8440),
+                            Id = "e_6hvI6stRf",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4676),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -241,8 +330,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 5,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8444),
+                            Id = "P1VxJlSTS_J",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4680),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -251,8 +340,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 6,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8454),
+                            Id = "h3zqBJjNnN1",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4686),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -261,8 +350,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 7,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8459),
+                            Id = "q01B9XSzO7u",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4689),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description test",
                             Image = "1.jpg",
@@ -273,15 +362,12 @@ namespace SmartBuyApi.Migrations
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CategoryId")
+                    b.Property<string>("CategoryId")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
@@ -294,10 +380,9 @@ namespace SmartBuyApi.Migrations
                         .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
@@ -321,15 +406,18 @@ namespace SmartBuyApi.Migrations
 
                     b.ToTable("tbl_Products");
 
+                    b.HasDiscriminator<string>("Discriminator").HasValue("ProductEntity");
+
+                    b.UseTphMappingStrategy();
+
                     b.HasData(
                         new
                         {
-                            Id = 1,
-                            CategoryId = 1,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8595),
+                            Id = "obsHt7jAbxE",
+                            CategoryId = "imwccWSupND",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4809),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "test",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "ПК Х123434",
                             Price = 436765,
@@ -337,12 +425,11 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 2,
-                            CategoryId = 2,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8606),
+                            Id = "s9ZEVypPBYV",
+                            CategoryId = "r0HHeNteua_",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4816),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ми представляємо вам найпотужнішу, саму оснащену, ударотривкий та найефективнішу версію смартфона 2021 року від румунської компанії iHunt .",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "iHunt Titan P13000 PRO 2021",
                             Price = 13940,
@@ -350,12 +437,11 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 3,
-                            CategoryId = 3,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8611),
+                            Id = "pLN08ZDb3im",
+                            CategoryId = "sLeo04PkfFB",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4820),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Холодильники з системою NeoFrost ",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "BEKO CNA295K20XP",
                             Price = 10999,
@@ -363,12 +449,11 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 4,
-                            CategoryId = 4,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8616),
+                            Id = "GlgpC9iRmPg",
+                            CategoryId = "e_6hvI6stRf",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4825),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ланцюгова пила Bosch UniversalChain ",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Bosch UniversalChain 40",
                             Price = 3958,
@@ -376,12 +461,11 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 5,
-                            CategoryId = 5,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8620),
+                            Id = "wxFFIrerH11",
+                            CategoryId = "P1VxJlSTS_J",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4828),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Велосипед Champion Spark 29 ",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Champion Spark 29 19.5 Black-neon yellow-white",
                             Price = 5460,
@@ -389,17 +473,46 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = 6,
-                            CategoryId = 6,
-                            DateCreated = new DateTime(2023, 7, 5, 12, 54, 7, 653, DateTimeKind.Utc).AddTicks(8625),
+                            Id = "NkNp_HlpUVb",
+                            CategoryId = "h3zqBJjNnN1",
+                            DateCreated = new DateTime(2023, 7, 9, 18, 23, 7, 77, DateTimeKind.Utc).AddTicks(4833),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "ВНабір паперу офісного Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла ",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла",
                             Price = 1199,
                             ShortDescription = "figna"
                         });
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductImageEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("tbl_ProductImages");
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -430,7 +543,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Adresses");
+                    b.ToTable("tbl_Adresses", (string)null);
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.SmartUser", b =>
@@ -506,7 +619,39 @@ namespace SmartBuyApi.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("tbl_Users", (string)null);
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.SpecializedProducts.Laptop", b =>
+                {
+                    b.HasBaseType("SmartBuyApi.Data.DataBase.Tables.ProductEntity");
+
+                    b.Property<string>("GraphicCard")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Processor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("tbl_Products");
+
+                    b.HasDiscriminator().HasValue("Laptop");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.SpecializedProducts.Telephone", b =>
+                {
+                    b.HasBaseType("SmartBuyApi.Data.DataBase.Tables.ProductEntity");
+
+                    b.Property<int>("BatteryCapacity")
+                        .HasColumnType("int");
+
+                    b.Property<float>("DisplayDiagonal")
+                        .HasColumnType("real");
+
+                    b.ToTable("tbl_Products");
+
+                    b.HasDiscriminator().HasValue("Telephone");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -560,6 +705,35 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.FilterName", b =>
+                {
+                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", "Category")
+                        .WithMany("FilterNames")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.FilterValue", b =>
+                {
+                    b.HasOne("SmartBuyApi.Data.DataBase.Entities.FilterName", "FilterName")
+                        .WithMany("Values")
+                        .HasForeignKey("FilterNameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FilterName");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("SmartBuyApi.DataBase.Tables.SmartUser", null)
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("SmartUserId");
+                });
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
                 {
                     b.HasOne("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", "Category")
@@ -569,6 +743,17 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductImageEntity", b =>
+                {
+                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.ProductEntity", "Product")
+                        .WithMany("Images")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -582,9 +767,26 @@ namespace SmartBuyApi.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.FilterName", b =>
+                {
+                    b.Navigation("Values");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
+                {
+                    b.Navigation("FilterNames");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
+                {
+                    b.Navigation("Images");
+                });
+
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.SmartUser", b =>
                 {
                     b.Navigation("Adresses");
+
+                    b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618
         }

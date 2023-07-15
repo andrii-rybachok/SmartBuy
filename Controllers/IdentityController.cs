@@ -17,16 +17,14 @@ namespace SmartBuyApi.Controllers
 	{
 		private readonly UserManager<SmartUser> _userManager;
 		private readonly RoleManager<IdentityRole> _roleManager;
-		private readonly SignInManager<SmartUser> _signInManager;
 		private readonly IUserService _userService;
 		private readonly IMapper _mapper;
-		public IdentityController(IMapper mapper, SignInManager<SmartUser> signInManager, RoleManager<IdentityRole> manager,
+		public IdentityController(IMapper mapper, RoleManager<IdentityRole> manager,
 			UserManager<SmartUser> userManager,IUserService userService)
 		{
 			_mapper = mapper;
 			_userManager = userManager;
 			_roleManager = manager;
-			_signInManager = signInManager;
 			_userService = userService;
 		}
 

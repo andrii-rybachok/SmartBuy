@@ -7,7 +7,7 @@ namespace SmartBuyApi.Data.DataBase.Tables
     [Table("tbl_Products")]
     public class ProductEntity
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         [Required, StringLength(255)]
         public string Name { get; set; }
         [StringLength(500)]
@@ -19,13 +19,17 @@ namespace SmartBuyApi.Data.DataBase.Tables
         public bool IsDelete { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateLastEdit { get; set; }
-        [StringLength(255)]
-        public string Image { get; set; }
-        [DisplayName("Category")]
-        //[ForeignKey("Category")]
-        public int? CategoryId { get; set; } //public int? CategoryId { get; set; }
-        [ForeignKey("CategoryId")]
+        
+
+        
+        public string? CategoryId { get; set; } 
+        
         public CategoryEntity Category { get; set; }
-        //public virtual ICollection<ProductImageEntity> ProductImages { get; set; }
-    }
+
+		public List<ProductImageEntity> Images { get; set; }
+        public ProductEntity()
+        {
+            Images = new List<ProductImageEntity>();
+        }
+	}
 }

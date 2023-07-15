@@ -12,6 +12,10 @@ using SmartBuyAPI.Helpers;
 using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO.Product;
 using SmartBuyApi.DataBase;
+using Duende.IdentityServer.Extensions;
+using SmartBuyApi.Data.Models.DTO.Category;
+using SmartBuyApi.Data.DataBase.Entities;
+using SmartBuyApi.Data.Models.DTO.Filters;
 
 namespace SmartBuyAPI.Controllers
 {
@@ -30,14 +34,16 @@ namespace SmartBuyAPI.Controllers
             _iconfiguration = iconfigoration;
         }
 
-        [HttpGet("get")]
+        
+
+		[HttpGet("get")]
         public async Task<ActionResult<IEnumerable<ProductItemDTO>>> Get()
         {
             var result = await _context.Products.Select(x => _mapper.Map<ProductItemDTO>(x)).ToListAsync();
             return Ok(result);
         }
         [HttpGet("get/{id:int}")]
-        public async Task<ActionResult<IEnumerable<ProductItemDTO>>> GetById(int id)
+        public async Task<ActionResult<IEnumerable<ProductItemDTO>>> GetById(string id)
         {
             var result = await _context.Products.Where(x => x.Id == id).Select(x => _mapper.Map<ProductItemDTO>(x)).ToListAsync();
             if (result.Count > 0)
@@ -52,9 +58,9 @@ namespace SmartBuyAPI.Controllers
             
             var product = _mapper.Map<ProductEntity>(model); // CategoryEntity update CategoryCreateDTO
             product.DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
-            product.Image = ImageHelper.SaveAndGetImageName(model.Image, _iconfiguration);
+            //product.Image = ImageHelper.SaveAndGetImageName(model.Image, _iconfiguration);
             
-            product.CategoryId = model.CategoryId == 0 ? null : model.CategoryId;
+            product.CategoryId = model.CategoryId.IsNullOrEmpty() ? null : model.CategoryId;
             await _context.AddAsync(product);
             await _context.SaveChangesAsync();
             return Ok(product);
@@ -70,26 +76,26 @@ namespace SmartBuyAPI.Controllers
             product.Name = model.Name;
             product.DateLastEdit = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             
-            ImageHelper.DeleteImage(product.Image);
-            string imageNewName = ImageHelper.SaveAndGetImageName(model.ImageUpload, _iconfiguration);
-            product.Image = string.IsNullOrEmpty(imageNewName) ? product.Image : imageNewName;
+            //ImageHelper.DeleteImage(product.Image);
+            //string imageNewName = ImageHelper.SaveAndGetImageName(model.ImageUpload, _iconfiguration);
+            //product.Image = string.IsNullOrEmpty(imageNewName) ? product.Image : imageNewName;
 
             product.Description = model.Description;
             product.ShortDescription = model.ShortDescription;
             product.Price = model.Price;
-            product.CategoryId = model.CategoryId == 0 ? null : model.CategoryId;
+            product.CategoryId = model.CategoryId.IsNullOrEmpty() ? null : model.CategoryId;
             await _context.SaveChangesAsync();
             return Ok(product);
         }
 
         [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
             if (product == null)
                 return NotFound();
 
-            ImageHelper.DeleteImage(product.Image);
+            //ImageHelper.DeleteImage(product.Image);
 
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
