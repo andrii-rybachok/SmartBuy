@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace SmartBuyApi.Data.DataBase.Entities
 {
-    [Owned]
+    [Table("tbl_Tokens")]
+	[Owned]
     public class RefreshToken
     {
         [Key]

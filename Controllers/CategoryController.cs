@@ -37,7 +37,7 @@ namespace SmartBuyAPI.Controllers
             return Ok(result);
         }
         [HttpGet("get/{id}")] //[HttpGet("get/{id:int}")]
-        public async Task<ActionResult<IEnumerable<CategoryItemDTO>>> GetById(int id)
+        public async Task<ActionResult<IEnumerable<CategoryItemDTO>>> GetById(string id)
         {
             var result = await _context.Categories.Where(x => x.Id == id).Select(x => _mapper.Map<CategoryItemDTO>(x)).ToListAsync();
             if (result.Count > 0)
@@ -46,11 +46,7 @@ namespace SmartBuyAPI.Controllers
             }
             else { return NotFound(); }
         }
-        /// <summary>
-        /// Создание категории
-        /// </summary>
-        /// <param name="model">Категория</param>
-        /// <returns></returns>
+
         [HttpPost("create")]
         public async Task<ActionResult<IEnumerable<CategoryCreateDTO>>> Create([FromForm] CategoryCreateDTO model)
         {
@@ -89,7 +85,7 @@ namespace SmartBuyAPI.Controllers
         }
 
         [HttpDelete("delete/{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var category = await _context.Categories.SingleOrDefaultAsync(x => x.Id == id);
             if (category == null)

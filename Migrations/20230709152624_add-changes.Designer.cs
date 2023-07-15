@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartBuyApi.DataBase;
 
@@ -11,9 +12,11 @@ using SmartBuyApi.DataBase;
 namespace SmartBuyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230709152624_add-changes")]
+    partial class addchanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,36 +184,6 @@ namespace SmartBuyApi.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("tbl_FilterNames");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "KZQrd4Xwrn_",
-                            CategoryId = "K_ZQE-j2tw4",
-                            Name = "GraphicCard",
-                            PublicName = "Дискретна відеокарта"
-                        },
-                        new
-                        {
-                            Id = "tZ0ImTM8zm8",
-                            CategoryId = "K_ZQE-j2tw4",
-                            Name = "Processor",
-                            PublicName = "Процесор"
-                        },
-                        new
-                        {
-                            Id = "KL6LqDoQ5SM",
-                            CategoryId = "baADvNdQR7R",
-                            Name = "BatteryCapacity",
-                            PublicName = "Ємність акумулятора"
-                        },
-                        new
-                        {
-                            Id = "PzjB2De92e_",
-                            CategoryId = "baADvNdQR7R",
-                            Name = "DisplayDiagonal",
-                            PublicName = "Діагональ екрана"
-                        });
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.FilterValue", b =>
@@ -222,17 +195,12 @@ namespace SmartBuyApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<double>("MaxValue")
-                        .HasColumnType("float");
-
-                    b.Property<double>("MinValue")
-                        .HasColumnType("float");
-
                     b.Property<string>("PublicValue")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("StringValue")
+                    b.Property<string>("Value")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -240,84 +208,6 @@ namespace SmartBuyApi.Migrations
                     b.HasIndex("FilterNameId");
 
                     b.ToTable("tbl_FilterValues");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "9Okc93c4auK",
-                            FilterNameId = "KZQrd4Xwrn_",
-                            MaxValue = 0.0,
-                            MinValue = 0.0,
-                            PublicValue = "GeForce RTX 3070",
-                            StringValue = "RTX 3070"
-                        },
-                        new
-                        {
-                            Id = "9k2MT0KVK7Q",
-                            FilterNameId = "KZQrd4Xwrn_",
-                            MaxValue = 0.0,
-                            MinValue = 0.0,
-                            PublicValue = "GeForce RTX 3060",
-                            StringValue = "RTX 3060"
-                        },
-                        new
-                        {
-                            Id = "AZ0V4pa5t4r",
-                            FilterNameId = "tZ0ImTM8zm8",
-                            MaxValue = 0.0,
-                            MinValue = 0.0,
-                            PublicValue = "AMD Ryzen 7",
-                            StringValue = "AMD Ryzen 7"
-                        },
-                        new
-                        {
-                            Id = "ylu6ybC1A1o",
-                            FilterNameId = "tZ0ImTM8zm8",
-                            MaxValue = 0.0,
-                            MinValue = 0.0,
-                            PublicValue = "Intel Core i7",
-                            StringValue = "Intel Core i7"
-                        },
-                        new
-                        {
-                            Id = "E2PBnVYgp6h",
-                            FilterNameId = "KL6LqDoQ5SM",
-                            MaxValue = 3999.0,
-                            MinValue = 3000.0,
-                            PublicValue = "3000 - 3999 мА*год "
-                        },
-                        new
-                        {
-                            Id = "9HySyPlWeVw",
-                            FilterNameId = "KL6LqDoQ5SM",
-                            MaxValue = 4999.0,
-                            MinValue = 4000.0,
-                            PublicValue = "4000 - 4999 мА*год "
-                        },
-                        new
-                        {
-                            Id = "NIUc1g4ON6Q",
-                            FilterNameId = "PzjB2De92e_",
-                            MaxValue = 5.0,
-                            MinValue = 4.5999999999999996,
-                            PublicValue = "4.6\" - 5\""
-                        },
-                        new
-                        {
-                            Id = "ruS6WnxOWBN",
-                            FilterNameId = "PzjB2De92e_",
-                            MaxValue = 5.5,
-                            MinValue = 5.0099999999999998,
-                            PublicValue = "5.01\" - 5.5\""
-                        },
-                        new
-                        {
-                            Id = "gTZ7s5cp8Gq",
-                            FilterNameId = "PzjB2De92e_",
-                            MaxValue = 6.0,
-                            MinValue = 5.5,
-                            PublicValue = "5.5\" - 6\""
-                        });
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
@@ -397,8 +287,8 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7072),
+                            Id = "o5XM9CF7hLZ",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9470),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -407,8 +297,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7131),
+                            Id = "S8zdJam10lk",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9520),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -417,8 +307,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "VYMljuZGttj",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7136),
+                            Id = "Hb9brPC_X-J",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9530),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -427,8 +317,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "k6gF0CsEuJ-",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7140),
+                            Id = "ek6jbbqDp59",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9534),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -437,8 +327,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "OGFvKGT57P5",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7143),
+                            Id = "n5fZ2t4jnXl",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9537),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -447,8 +337,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "rI1kYKYzDu7",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7149),
+                            Id = "1PgA5OcFLRI",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9569),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -457,8 +347,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "lw_-LKvVrcH",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7154),
+                            Id = "z4KqEICtncD",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9573),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description test",
                             Image = "1.jpg",
@@ -487,10 +377,6 @@ namespace SmartBuyApi.Migrations
                         .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -513,16 +399,12 @@ namespace SmartBuyApi.Migrations
 
                     b.ToTable("tbl_Products");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("ProductEntity");
-
-                    b.UseTphMappingStrategy();
-
                     b.HasData(
                         new
                         {
-                            Id = "jVctM12zvHK",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7227),
+                            Id = "5vu5pFD0EZi",
+                            CategoryId = "o5XM9CF7hLZ",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9638),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "test",
                             IsDelete = false,
@@ -532,9 +414,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "dgTQ9quhm3z",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7234),
+                            Id = "7R-W5eNIRCo",
+                            CategoryId = "S8zdJam10lk",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9646),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ми представляємо вам найпотужнішу, саму оснащену, ударотривкий та найефективнішу версію смартфона 2021 року від румунської компанії iHunt .",
                             IsDelete = false,
@@ -544,9 +426,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "UXZ85FeIPLG",
-                            CategoryId = "VYMljuZGttj",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7237),
+                            Id = "boZhk8N4-ms",
+                            CategoryId = "Hb9brPC_X-J",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9650),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Холодильники з системою NeoFrost ",
                             IsDelete = false,
@@ -556,9 +438,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "OYGBt-bnxF4",
-                            CategoryId = "k6gF0CsEuJ-",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7242),
+                            Id = "72Nt27oGxYt",
+                            CategoryId = "ek6jbbqDp59",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9655),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ланцюгова пила Bosch UniversalChain ",
                             IsDelete = false,
@@ -568,9 +450,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "cDwKeshlgeQ",
-                            CategoryId = "OGFvKGT57P5",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7246),
+                            Id = "iA2Ng90f8xC",
+                            CategoryId = "n5fZ2t4jnXl",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9658),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Велосипед Champion Spark 29 ",
                             IsDelete = false,
@@ -580,9 +462,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "JJ6MMAALVjR",
-                            CategoryId = "rI1kYKYzDu7",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7249),
+                            Id = "Wn4iQyWrIqT",
+                            CategoryId = "1PgA5OcFLRI",
+                            DateCreated = new DateTime(2023, 7, 9, 17, 26, 23, 953, DateTimeKind.Utc).AddTicks(9662),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "ВНабір паперу офісного Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла ",
                             IsDelete = false,
@@ -729,238 +611,6 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("tbl_Users", (string)null);
                 });
 
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.SpecializedProducts.Laptop", b =>
-                {
-                    b.HasBaseType("SmartBuyApi.Data.DataBase.Tables.ProductEntity");
-
-                    b.Property<string>("GraphicCard")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Processor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("tbl_Products");
-
-                    b.HasDiscriminator().HasValue("Laptop");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "fS97CMXw7YH",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7480),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
-                            Price = 28999,
-                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3070",
-                            Processor = "Intel Core i7"
-                        },
-                        new
-                        {
-                            Id = "AHmx3HmwPGQ",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7483),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Ноутбук Acer22222 Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
-                            Price = 28999,
-                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3060",
-                            Processor = "AMD Ryzen 7"
-                        },
-                        new
-                        {
-                            Id = "4MfV3csqIC0",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7485),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Ноутбук Acer333333 Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
-                            Price = 28999,
-                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3070",
-                            Processor = "Intel Core i7"
-                        },
-                        new
-                        {
-                            Id = "IONp1DJWuOU",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7487),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Ноутбук Acer44444444444 Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
-                            Price = 28999,
-                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3060",
-                            Processor = "AMD Ryzen 7"
-                        },
-                        new
-                        {
-                            Id = "i-K_IO5HhWT",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7490),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
-                            Price = 28999,
-                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3070",
-                            Processor = "AMD Ryzen 7"
-                        },
-                        new
-                        {
-                            Id = "MI13daCiXAL",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7492),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
-                            Price = 28999,
-                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3060",
-                            Processor = "Intel Core i7"
-                        });
-                });
-
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.SpecializedProducts.Telephone", b =>
-                {
-                    b.HasBaseType("SmartBuyApi.Data.DataBase.Tables.ProductEntity");
-
-                    b.Property<int>("BatteryCapacity")
-                        .HasColumnType("int");
-
-                    b.Property<double>("DisplayDiagonal")
-                        .HasColumnType("float");
-
-                    b.ToTable("tbl_Products");
-
-                    b.HasDiscriminator().HasValue("Telephone");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "PelHVxQmn8-",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7529),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Мобільний телефон Apple iPhone 14 Pro Max 128GB Deep Purple",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 3100,
-                            DisplayDiagonal = 6.4000000000000004
-                        },
-                        new
-                        {
-                            Id = "LyQB8y0WPUe",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7532),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Мобільний телефон Apple i111",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 4100,
-                            DisplayDiagonal = 5.5999999999999996
-                        },
-                        new
-                        {
-                            Id = "V04Tq-33pUS",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7535),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Мобільний телефон Apple i222",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 3600,
-                            DisplayDiagonal = 5.5
-                        },
-                        new
-                        {
-                            Id = "ZBLZP_-1_pi",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7537),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Мобільний телефон Apple i333313",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 3900,
-                            DisplayDiagonal = 5.2000000000000002
-                        },
-                        new
-                        {
-                            Id = "l9aktPJblrx",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7539),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Мо4444444 4414 Pro Max 128GB Deep Purple",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 4800,
-                            DisplayDiagonal = 8.4000000000000004
-                        },
-                        new
-                        {
-                            Id = "4QuVsDU2Zln",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7541),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "М55555555 Deep Purple",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 4900,
-                            DisplayDiagonal = 6.2999999999999998
-                        },
-                        new
-                        {
-                            Id = "WafSv6iL8Kl",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7544),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Мобільний 66666666B Deep Purple",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 4200,
-                            DisplayDiagonal = 5.0999999999999996
-                        },
-                        new
-                        {
-                            Id = "wDnb3sWx34u",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7546),
-                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Доооооовгий опис",
-                            IsDelete = false,
-                            Name = "Мобіл77777777 28GB Deep Purple",
-                            Price = 54999,
-                            ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
-                            BatteryCapacity = 4600,
-                            DisplayDiagonal = 4.9000000000000004
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1044,7 +694,7 @@ namespace SmartBuyApi.Migrations
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
                 {
                     b.HasOne("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", "Category")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1082,8 +732,6 @@ namespace SmartBuyApi.Migrations
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
                 {
                     b.Navigation("FilterNames");
-
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
