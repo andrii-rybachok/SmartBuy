@@ -8,5 +8,6 @@ namespace SmartBuyApi.Data.DataBase.Tables
     {
         public string Id { get; set; }
         public string LastNameUser{ get; set; }
+        public List<CartItem> Items { get; set; }
     }
 }

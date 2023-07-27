@@ -17,11 +17,26 @@ namespace SmartBuyAPI.Controllers
 {
     public class CartController : Controller
     {
-        private readonly ProductEntity _productService;
-        private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
-        private readonly IConfiguration _iconfiguration;
+        private readonly ApplicationDbContext _db;
 
-       
+        public CartController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddToCart(Cart item)
+        {
+            _db.Cart.Add(item);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
