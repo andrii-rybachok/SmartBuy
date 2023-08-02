@@ -18,8 +18,7 @@ namespace SmartBuyApi.Data.DataBase.Tables
 
         [StringLength(4000)]
         public string Description { get; set; }
-        [StringLength(255)]
-        public string Image { get; set; }
+        public ImageEntity Image { get; set; }
 
         public List<FilterName> FilterNames { get; set; }
         public List<ProductEntity> Products { get; set; }

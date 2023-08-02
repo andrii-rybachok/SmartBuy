@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using SmartBuyApi.Data.DataBase.Entities;
 
 namespace SmartBuyApi.Data.DataBase.Tables
 {
@@ -14,8 +15,16 @@ namespace SmartBuyApi.Data.DataBase.Tables
         public string ShortDescription { get; set; }
         [StringLength(4000)]
         public string Description { get; set; }
+		[Range(1, 100)]
+		public int Dicount { get; set; }
+
         [Range(1, int.MaxValue)]
         public int Price { get; set; }
+
+        public int ActualPrice => Dicount == 1 ? Price : (int)Math.Round((double)Price-(Price/100*Dicount));
+
+        public double Rating =>Comments.Count>0? Comments.Sum(x => x.Rating) / Comments.Count:0;
+
         public bool IsDelete { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateLastEdit { get; set; }
@@ -26,10 +35,13 @@ namespace SmartBuyApi.Data.DataBase.Tables
         
         public CategoryEntity Category { get; set; }
 
-		public List<ProductImageEntity> Images { get; set; }
+		public List<ImageEntity> Images { get; set; }
+        public List<ReviewEntity> Comments { get; set; }
+
         public ProductEntity()
         {
-            Images = new List<ProductImageEntity>();
+            Comments= new List<ReviewEntity>();
+            Images = new List<ImageEntity>();
         }
 	}
 }

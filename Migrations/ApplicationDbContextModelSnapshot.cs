@@ -185,29 +185,36 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "KZQrd4Xwrn_",
-                            CategoryId = "K_ZQE-j2tw4",
+                            Id = "H4FLS7bDoyL",
+                            CategoryId = "JFMwotDdZNz",
                             Name = "GraphicCard",
                             PublicName = "Дискретна відеокарта"
                         },
                         new
                         {
-                            Id = "tZ0ImTM8zm8",
-                            CategoryId = "K_ZQE-j2tw4",
+                            Id = "79Xa4Z4OW9m",
+                            CategoryId = "JFMwotDdZNz",
                             Name = "Processor",
                             PublicName = "Процесор"
                         },
                         new
                         {
-                            Id = "KL6LqDoQ5SM",
-                            CategoryId = "baADvNdQR7R",
+                            Id = "a4ftuWBbKi7",
+                            CategoryId = "JFMwotDdZNz",
+                            Name = "RAM",
+                            PublicName = "Обсяг оперативної пам'яті"
+                        },
+                        new
+                        {
+                            Id = "mRX96bFOXhr",
+                            CategoryId = "Ypzpp28bZSi",
                             Name = "BatteryCapacity",
                             PublicName = "Ємність акумулятора"
                         },
                         new
                         {
-                            Id = "PzjB2De92e_",
-                            CategoryId = "baADvNdQR7R",
+                            Id = "tlh3NxncHJc",
+                            CategoryId = "Ypzpp28bZSi",
                             Name = "DisplayDiagonal",
                             PublicName = "Діагональ екрана"
                         });
@@ -244,8 +251,8 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9Okc93c4auK",
-                            FilterNameId = "KZQrd4Xwrn_",
+                            Id = "2OkofcctUQD",
+                            FilterNameId = "H4FLS7bDoyL",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "GeForce RTX 3070",
@@ -253,8 +260,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "9k2MT0KVK7Q",
-                            FilterNameId = "KZQrd4Xwrn_",
+                            Id = "7Vh1_TRtgK2",
+                            FilterNameId = "H4FLS7bDoyL",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "GeForce RTX 3060",
@@ -262,8 +269,17 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "AZ0V4pa5t4r",
-                            FilterNameId = "tZ0ImTM8zm8",
+                            Id = "IPy68WU4Bbo",
+                            FilterNameId = "H4FLS7bDoyL",
+                            MaxValue = 0.0,
+                            MinValue = 0.0,
+                            PublicValue = "GeForce RTX 3050",
+                            StringValue = "RTX 3050"
+                        },
+                        new
+                        {
+                            Id = "FPhqc1Ct8nQ",
+                            FilterNameId = "79Xa4Z4OW9m",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "AMD Ryzen 7",
@@ -271,8 +287,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "ylu6ybC1A1o",
-                            FilterNameId = "tZ0ImTM8zm8",
+                            Id = "hdKwd0W0BUy",
+                            FilterNameId = "79Xa4Z4OW9m",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "Intel Core i7",
@@ -280,43 +296,599 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "E2PBnVYgp6h",
-                            FilterNameId = "KL6LqDoQ5SM",
+                            Id = "Ag8RAQkmwTa",
+                            FilterNameId = "79Xa4Z4OW9m",
+                            MaxValue = 0.0,
+                            MinValue = 0.0,
+                            PublicValue = "Intel Core i5",
+                            StringValue = "Intel Core i5"
+                        },
+                        new
+                        {
+                            Id = "HWXG1Ogpi0i",
+                            FilterNameId = "a4ftuWBbKi7",
+                            MaxValue = 3.0,
+                            MinValue = 0.20000000000000001,
+                            PublicValue = "3 ГБ і менше"
+                        },
+                        new
+                        {
+                            Id = "R-oqCtNIqPu",
+                            FilterNameId = "a4ftuWBbKi7",
+                            MaxValue = 4.0,
+                            MinValue = 4.0,
+                            PublicValue = "4 ГБ"
+                        },
+                        new
+                        {
+                            Id = "lw6O2M1Dn59",
+                            FilterNameId = "a4ftuWBbKi7",
+                            MaxValue = 8.0,
+                            MinValue = 6.0,
+                            PublicValue = "6 - 8 ГБ"
+                        },
+                        new
+                        {
+                            Id = "MLHgKjCmu1S",
+                            FilterNameId = "a4ftuWBbKi7",
+                            MaxValue = 12.0,
+                            MinValue = 10.0,
+                            PublicValue = "10 - 12 ГБ"
+                        },
+                        new
+                        {
+                            Id = "F_MWfKPGlX1",
+                            FilterNameId = "a4ftuWBbKi7",
+                            MaxValue = 24.0,
+                            MinValue = 16.0,
+                            PublicValue = "16 - 24 ГБ"
+                        },
+                        new
+                        {
+                            Id = "ur6KI9q2SC-",
+                            FilterNameId = "mRX96bFOXhr",
                             MaxValue = 3999.0,
                             MinValue = 3000.0,
                             PublicValue = "3000 - 3999 мА*год "
                         },
                         new
                         {
-                            Id = "9HySyPlWeVw",
-                            FilterNameId = "KL6LqDoQ5SM",
+                            Id = "mi6UU02hZ60",
+                            FilterNameId = "mRX96bFOXhr",
                             MaxValue = 4999.0,
                             MinValue = 4000.0,
                             PublicValue = "4000 - 4999 мА*год "
                         },
                         new
                         {
-                            Id = "NIUc1g4ON6Q",
-                            FilterNameId = "PzjB2De92e_",
+                            Id = "O4LnA_cxjF3",
+                            FilterNameId = "tlh3NxncHJc",
                             MaxValue = 5.0,
                             MinValue = 4.5999999999999996,
                             PublicValue = "4.6\" - 5\""
                         },
                         new
                         {
-                            Id = "ruS6WnxOWBN",
-                            FilterNameId = "PzjB2De92e_",
+                            Id = "pbRo71Cz7EN",
+                            FilterNameId = "tlh3NxncHJc",
                             MaxValue = 5.5,
                             MinValue = 5.0099999999999998,
                             PublicValue = "5.01\" - 5.5\""
                         },
                         new
                         {
-                            Id = "gTZ7s5cp8Gq",
-                            FilterNameId = "PzjB2De92e_",
+                            Id = "mYGRrUARH6g",
+                            FilterNameId = "tlh3NxncHJc",
                             MaxValue = 6.0,
                             MinValue = 5.5,
                             PublicValue = "5.5\" - 6\""
+                        });
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.ImageEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CategoryId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Priority")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId")
+                        .IsUnique()
+                        .HasFilter("[CategoryId] IS NOT NULL");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Images");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "cDYFRP3-C1l",
+                            Name = "1_1.webp",
+                            Priority = 1,
+                            ProductId = "PZVWjYvMdHP"
+                        },
+                        new
+                        {
+                            Id = "4Z9sgyMNs6u",
+                            Name = "1_2.webp",
+                            Priority = 2,
+                            ProductId = "PZVWjYvMdHP"
+                        },
+                        new
+                        {
+                            Id = "6mQ-3JubbuZ",
+                            Name = "1_3.webp",
+                            Priority = 3,
+                            ProductId = "PZVWjYvMdHP"
+                        },
+                        new
+                        {
+                            Id = "kt5S5wK4jGC",
+                            Name = "2_1.webp",
+                            Priority = 1,
+                            ProductId = "Jzfx_EpnZOP"
+                        },
+                        new
+                        {
+                            Id = "A8xGCuNRbjn",
+                            Name = "2_2.webp",
+                            Priority = 2,
+                            ProductId = "Jzfx_EpnZOP"
+                        },
+                        new
+                        {
+                            Id = "m5GZbOf9fiJ",
+                            Name = "2_3.webp",
+                            Priority = 3,
+                            ProductId = "Jzfx_EpnZOP"
+                        },
+                        new
+                        {
+                            Id = "_yvPsaiG6Po",
+                            Name = "3_1.webp",
+                            Priority = 1,
+                            ProductId = "wZttGY5B8sb"
+                        },
+                        new
+                        {
+                            Id = "UTHaG2pwFgQ",
+                            Name = "3_2.webp",
+                            Priority = 2,
+                            ProductId = "wZttGY5B8sb"
+                        },
+                        new
+                        {
+                            Id = "I8FRiZBSBl8",
+                            Name = "3_3.webp",
+                            Priority = 3,
+                            ProductId = "wZttGY5B8sb"
+                        },
+                        new
+                        {
+                            Id = "aGfirM1Wzc7",
+                            Name = "1_1.webp",
+                            Priority = 1,
+                            ProductId = "AB9dPMRxx2l"
+                        },
+                        new
+                        {
+                            Id = "IMW1bNTS8lo",
+                            Name = "1_2.webp",
+                            Priority = 2,
+                            ProductId = "AB9dPMRxx2l"
+                        },
+                        new
+                        {
+                            Id = "GpDqScEkzQG",
+                            Name = "1_3.webp",
+                            Priority = 3,
+                            ProductId = "AB9dPMRxx2l"
+                        },
+                        new
+                        {
+                            Id = "qccgozSGWad",
+                            Name = "2_1.webp",
+                            Priority = 1,
+                            ProductId = "vLss89S6Atc"
+                        },
+                        new
+                        {
+                            Id = "3gLET18XpTs",
+                            Name = "2_2.webp",
+                            Priority = 2,
+                            ProductId = "vLss89S6Atc"
+                        },
+                        new
+                        {
+                            Id = "kiZCzRXJp7p",
+                            Name = "2_3.webp",
+                            Priority = 3,
+                            ProductId = "vLss89S6Atc"
+                        },
+                        new
+                        {
+                            Id = "BuLPNjYEg9j",
+                            Name = "3_1.webp",
+                            Priority = 1,
+                            ProductId = "uzAmcyIr-pr"
+                        },
+                        new
+                        {
+                            Id = "SoEJo8ocFqH",
+                            Name = "3_2.webp",
+                            Priority = 2,
+                            ProductId = "uzAmcyIr-pr"
+                        },
+                        new
+                        {
+                            Id = "ZGvSwiLl39q",
+                            Name = "3_3.webp",
+                            Priority = 3,
+                            ProductId = "uzAmcyIr-pr"
+                        },
+                        new
+                        {
+                            Id = "-9eUdGrVOMB",
+                            Name = "1_1.webp",
+                            Priority = 1,
+                            ProductId = "so4b0EsnwD3"
+                        },
+                        new
+                        {
+                            Id = "hm1QRAmIuHQ",
+                            Name = "1_2.webp",
+                            Priority = 2,
+                            ProductId = "so4b0EsnwD3"
+                        },
+                        new
+                        {
+                            Id = "-14_T4Dy30Z",
+                            Name = "1_3.webp",
+                            Priority = 3,
+                            ProductId = "so4b0EsnwD3"
+                        },
+                        new
+                        {
+                            Id = "SFlcLEvyA3_",
+                            Name = "2_1.webp",
+                            Priority = 1,
+                            ProductId = "ZjgCVOUZ6mE"
+                        },
+                        new
+                        {
+                            Id = "soYNUXXfkDS",
+                            Name = "2_2.webp",
+                            Priority = 2,
+                            ProductId = "ZjgCVOUZ6mE"
+                        },
+                        new
+                        {
+                            Id = "jjiq3UjCgFH",
+                            Name = "2_3.webp",
+                            Priority = 3,
+                            ProductId = "ZjgCVOUZ6mE"
+                        },
+                        new
+                        {
+                            Id = "EIdYfjqlz2N",
+                            Name = "3_1.webp",
+                            Priority = 1,
+                            ProductId = "55LcIJu2KpP"
+                        },
+                        new
+                        {
+                            Id = "OsWXYlyyQ94",
+                            Name = "3_2.webp",
+                            Priority = 2,
+                            ProductId = "55LcIJu2KpP"
+                        },
+                        new
+                        {
+                            Id = "zuKoiIaCUWj",
+                            Name = "3_3.webp",
+                            Priority = 3,
+                            ProductId = "55LcIJu2KpP"
+                        },
+                        new
+                        {
+                            Id = "_WUylZTdFYi",
+                            Name = "1_1.webp",
+                            Priority = 1,
+                            ProductId = "HAJ--QhNcHt"
+                        },
+                        new
+                        {
+                            Id = "RAJ3lRA7J_i",
+                            Name = "1_2.webp",
+                            Priority = 2,
+                            ProductId = "HAJ--QhNcHt"
+                        },
+                        new
+                        {
+                            Id = "Zx2XCKAOaOa",
+                            Name = "1_3.webp",
+                            Priority = 3,
+                            ProductId = "HAJ--QhNcHt"
+                        },
+                        new
+                        {
+                            Id = "X-aefPJKkRG",
+                            Name = "3_1.webp",
+                            Priority = 1,
+                            ProductId = "QXFjRrimIZD"
+                        },
+                        new
+                        {
+                            Id = "ARWg3UE57pu",
+                            Name = "3_2.webp",
+                            Priority = 2,
+                            ProductId = "QXFjRrimIZD"
+                        },
+                        new
+                        {
+                            Id = "RBEKn9vERqJ",
+                            Name = "3_3.webp",
+                            Priority = 3,
+                            ProductId = "QXFjRrimIZD"
+                        },
+                        new
+                        {
+                            Id = "qY4jAsqQhYe",
+                            Name = "4_1.webp",
+                            Priority = 1,
+                            ProductId = "938kYMQ6YD_"
+                        },
+                        new
+                        {
+                            Id = "TSS-WbPbFg3",
+                            Name = "4_2.webp",
+                            Priority = 2,
+                            ProductId = "938kYMQ6YD_"
+                        },
+                        new
+                        {
+                            Id = "7519HsWdxKl",
+                            Name = "4_3.webp",
+                            Priority = 3,
+                            ProductId = "938kYMQ6YD_"
+                        },
+                        new
+                        {
+                            Id = "l34f2H2hXAW",
+                            Name = "5_1.webp",
+                            Priority = 1,
+                            ProductId = "uTy0b5fjlBN"
+                        },
+                        new
+                        {
+                            Id = "rSduYBVJIwt",
+                            Name = "5_2.webp",
+                            Priority = 2,
+                            ProductId = "uTy0b5fjlBN"
+                        },
+                        new
+                        {
+                            Id = "4SFBtLq5viS",
+                            Name = "5_3.webp",
+                            Priority = 3,
+                            ProductId = "uTy0b5fjlBN"
+                        },
+                        new
+                        {
+                            Id = "QeDnXHapWOd",
+                            Name = "6_1.webp",
+                            Priority = 1,
+                            ProductId = "SkHRhpGZYxa"
+                        },
+                        new
+                        {
+                            Id = "EOMteIBMaig",
+                            Name = "6_2.webp",
+                            Priority = 2,
+                            ProductId = "SkHRhpGZYxa"
+                        },
+                        new
+                        {
+                            Id = "oY0q9N8_1_O",
+                            Name = "6_3.webp",
+                            Priority = 3,
+                            ProductId = "SkHRhpGZYxa"
+                        },
+                        new
+                        {
+                            Id = "3BrgOOrgre-",
+                            Name = "3_1.webp",
+                            Priority = 1,
+                            ProductId = "9maYYCTeCU-"
+                        },
+                        new
+                        {
+                            Id = "eqvM75n6Dn-",
+                            Name = "3_2.webp",
+                            Priority = 2,
+                            ProductId = "9maYYCTeCU-"
+                        },
+                        new
+                        {
+                            Id = "62uxfBRdyFP",
+                            Name = "3_3.webp",
+                            Priority = 3,
+                            ProductId = "9maYYCTeCU-"
+                        },
+                        new
+                        {
+                            Id = "Gf70RTii9ix",
+                            Name = "4_1.webp",
+                            Priority = 1,
+                            ProductId = "9aqWnqAwPmq"
+                        },
+                        new
+                        {
+                            Id = "_FNzxqCNp7K",
+                            Name = "4_2.webp",
+                            Priority = 2,
+                            ProductId = "9aqWnqAwPmq"
+                        },
+                        new
+                        {
+                            Id = "HSXmaEzvGLX",
+                            Name = "4_3.webp",
+                            Priority = 3,
+                            ProductId = "9aqWnqAwPmq"
+                        },
+                        new
+                        {
+                            Id = "zZD1l6pSTtK",
+                            Name = "5_1.webp",
+                            Priority = 1,
+                            ProductId = "DaQ5_0nnthZ"
+                        },
+                        new
+                        {
+                            Id = "jb8AAmuzDFb",
+                            Name = "5_2.webp",
+                            Priority = 2,
+                            ProductId = "DaQ5_0nnthZ"
+                        },
+                        new
+                        {
+                            Id = "iCqV7xyGPMZ",
+                            Name = "5_3.webp",
+                            Priority = 3,
+                            ProductId = "DaQ5_0nnthZ"
+                        },
+                        new
+                        {
+                            Id = "QPCOQet9_9D",
+                            Name = "6_1.webp",
+                            Priority = 1,
+                            ProductId = "GnLcBELByjy"
+                        },
+                        new
+                        {
+                            Id = "IJ72q1xPu8t",
+                            Name = "6_2.webp",
+                            Priority = 2,
+                            ProductId = "GnLcBELByjy"
+                        },
+                        new
+                        {
+                            Id = "lExeXyvAXuZ",
+                            Name = "6_3.webp",
+                            Priority = 3,
+                            ProductId = "GnLcBELByjy"
+                        },
+                        new
+                        {
+                            Id = "ghLVd_uQmpL",
+                            Name = "3_1.webp",
+                            Priority = 1,
+                            ProductId = "DyhZ-Qm3RUe"
+                        },
+                        new
+                        {
+                            Id = "3C0DRy_cX0P",
+                            Name = "3_2.webp",
+                            Priority = 2,
+                            ProductId = "DyhZ-Qm3RUe"
+                        },
+                        new
+                        {
+                            Id = "NG1zpHYZ0Xn",
+                            Name = "3_3.webp",
+                            Priority = 3,
+                            ProductId = "DyhZ-Qm3RUe"
+                        },
+                        new
+                        {
+                            Id = "aweiCkmnH_1",
+                            Name = "4_1.webp",
+                            Priority = 1,
+                            ProductId = "6xNhyanBp7i"
+                        },
+                        new
+                        {
+                            Id = "XmwYFGndg1P",
+                            Name = "4_2.webp",
+                            Priority = 2,
+                            ProductId = "6xNhyanBp7i"
+                        },
+                        new
+                        {
+                            Id = "U1NCHm6YY9D",
+                            Name = "4_3.webp",
+                            Priority = 3,
+                            ProductId = "6xNhyanBp7i"
+                        },
+                        new
+                        {
+                            Id = "VoPUZEv-U8f",
+                            Name = "5_1.webp",
+                            Priority = 1,
+                            ProductId = "jl5r0PmjfFJ"
+                        },
+                        new
+                        {
+                            Id = "P5tJuHgrYrp",
+                            Name = "5_2.webp",
+                            Priority = 2,
+                            ProductId = "jl5r0PmjfFJ"
+                        },
+                        new
+                        {
+                            Id = "FupLBhtNjzA",
+                            Name = "5_3.webp",
+                            Priority = 3,
+                            ProductId = "jl5r0PmjfFJ"
+                        },
+                        new
+                        {
+                            Id = "lNrUNwiMWmI",
+                            Name = "6_1.webp",
+                            Priority = 1,
+                            ProductId = "O5JrjbFj983"
+                        },
+                        new
+                        {
+                            Id = "MhcK3eF7OHo",
+                            Name = "6_2.webp",
+                            Priority = 2,
+                            ProductId = "O5JrjbFj983"
+                        },
+                        new
+                        {
+                            Id = "-8SlXTY3yDM",
+                            Name = "6_3.webp",
+                            Priority = 3,
+                            ProductId = "O5JrjbFj983"
+                        },
+                        new
+                        {
+                            Id = "ogio62nScrz",
+                            CategoryId = "JFMwotDdZNz",
+                            Name = "3_1.webp",
+                            Priority = 1
+                        },
+                        new
+                        {
+                            Id = "EJ-YL0B1-JH",
+                            CategoryId = "Ypzpp28bZSi",
+                            Name = "5_1.webp",
+                            Priority = 1
                         });
                 });
 
@@ -361,6 +933,46 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("tbl_Tokens");
                 });
 
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.ReviewEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Advantages")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AuthorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Disadvantages")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MainText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<long>("Rating")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
                 {
                     b.Property<string>("Id")
@@ -377,11 +989,6 @@ namespace SmartBuyApi.Migrations
                         .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
@@ -397,71 +1004,64 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7072),
+                            Id = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(1797),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Комп'ютери та ноутбуки"
                         },
                         new
                         {
-                            Id = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7131),
+                            Id = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(1847),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Смартфони"
                         },
                         new
                         {
-                            Id = "VYMljuZGttj",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7136),
+                            Id = "CXD8b7gn5mg",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(1851),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Побутова техніка"
                         },
                         new
                         {
-                            Id = "k6gF0CsEuJ-",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7140),
+                            Id = "94lAOdl0QWy",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(1897),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Дача, сад, город"
                         },
                         new
                         {
-                            Id = "OGFvKGT57P5",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7143),
+                            Id = "kmoSrFBAE2q",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(1900),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Спорт і захоплення"
                         },
                         new
                         {
-                            Id = "rI1kYKYzDu7",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7149),
+                            Id = "XTmQOR7aNsG",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(1905),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "Офіс, школа, книги"
                         },
                         new
                         {
-                            Id = "lw_-LKvVrcH",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7154),
+                            Id = "by_54PlTU0J",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(1913),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description test",
-                            Image = "1.jpg",
                             IsDelete = false,
                             Name = "test"
                         });
@@ -486,6 +1086,9 @@ namespace SmartBuyApi.Migrations
                         .IsRequired()
                         .HasMaxLength(4000)
                         .HasColumnType("nvarchar(4000)");
+
+                    b.Property<int>("Dicount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
@@ -520,11 +1123,12 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "jVctM12zvHK",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7227),
+                            Id = "D9pNRsCvdcD",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(2010),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "test",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "ПК Х123434",
                             Price = 436765,
@@ -532,11 +1136,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "dgTQ9quhm3z",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7234),
+                            Id = "MOTI1q2qbqq",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(2019),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ми представляємо вам найпотужнішу, саму оснащену, ударотривкий та найефективнішу версію смартфона 2021 року від румунської компанії iHunt .",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "iHunt Titan P13000 PRO 2021",
                             Price = 13940,
@@ -544,11 +1149,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "UXZ85FeIPLG",
-                            CategoryId = "VYMljuZGttj",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7237),
+                            Id = "EZY488FLDnT",
+                            CategoryId = "CXD8b7gn5mg",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(2024),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Холодильники з системою NeoFrost ",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "BEKO CNA295K20XP",
                             Price = 10999,
@@ -556,11 +1162,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "OYGBt-bnxF4",
-                            CategoryId = "k6gF0CsEuJ-",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7242),
+                            Id = "k3KQCstxIXG",
+                            CategoryId = "94lAOdl0QWy",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(2027),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ланцюгова пила Bosch UniversalChain ",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Bosch UniversalChain 40",
                             Price = 3958,
@@ -568,11 +1175,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "cDwKeshlgeQ",
-                            CategoryId = "OGFvKGT57P5",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7246),
+                            Id = "127EzjPLMTz",
+                            CategoryId = "kmoSrFBAE2q",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(2031),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Велосипед Champion Spark 29 ",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Champion Spark 29 19.5 Black-neon yellow-white",
                             Price = 5460,
@@ -580,46 +1188,17 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "JJ6MMAALVjR",
-                            CategoryId = "rI1kYKYzDu7",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Utc).AddTicks(7249),
+                            Id = "641wfcwa4DZ",
+                            CategoryId = "XTmQOR7aNsG",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Utc).AddTicks(2035),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "ВНабір паперу офісного Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла ",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла",
                             Price = 1199,
                             ShortDescription = "figna"
                         });
-                });
-
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductImageEntity", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("Priority")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProductId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("tbl_ProductImages");
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -741,6 +1320,9 @@ namespace SmartBuyApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("RAM")
+                        .HasColumnType("float");
+
                     b.ToTable("tbl_Products");
 
                     b.HasDiscriminator().HasValue("Laptop");
@@ -748,87 +1330,163 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fS97CMXw7YH",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7480),
+                            Id = "PZVWjYvMdHP",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2297),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
                             Price = 28999,
                             ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
                             GraphicCard = "RTX 3070",
-                            Processor = "Intel Core i7"
+                            Processor = "Intel Core i7",
+                            RAM = 7.0
                         },
                         new
                         {
-                            Id = "AHmx3HmwPGQ",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7483),
+                            Id = "Jzfx_EpnZOP",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2301),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Ноутбук Acer22222 Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
                             Price = 28999,
                             ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3060",
-                            Processor = "AMD Ryzen 7"
+                            GraphicCard = "RTX 3050",
+                            Processor = "Intel Core i5",
+                            RAM = 11.0
                         },
                         new
                         {
-                            Id = "4MfV3csqIC0",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7485),
+                            Id = "wZttGY5B8sb",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2302),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Ноутбук Acer333333 Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
                             Price = 28999,
                             ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
                             GraphicCard = "RTX 3070",
-                            Processor = "Intel Core i7"
+                            Processor = "Intel Core i7",
+                            RAM = 10.0
                         },
                         new
                         {
-                            Id = "IONp1DJWuOU",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7487),
+                            Id = "AB9dPMRxx2l",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2304),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Ноутбук Acer44444444444 Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
                             Price = 28999,
                             ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
                             GraphicCard = "RTX 3060",
-                            Processor = "AMD Ryzen 7"
+                            Processor = "AMD Ryzen 7",
+                            RAM = 12.0
                         },
                         new
                         {
-                            Id = "i-K_IO5HhWT",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7490),
+                            Id = "vLss89S6Atc",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2306),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
                             Price = 28999,
                             ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
-                            GraphicCard = "RTX 3070",
-                            Processor = "AMD Ryzen 7"
+                            GraphicCard = "RTX 3050",
+                            Processor = "AMD Ryzen 7",
+                            RAM = 4.0
                         },
                         new
                         {
-                            Id = "MI13daCiXAL",
-                            CategoryId = "K_ZQE-j2tw4",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7492),
+                            Id = "uzAmcyIr-pr",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2309),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
                             Price = 28999,
                             ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
                             GraphicCard = "RTX 3060",
-                            Processor = "Intel Core i7"
+                            Processor = "Intel Core i7",
+                            RAM = 4.0
+                        },
+                        new
+                        {
+                            Id = "so4b0EsnwD3",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2311),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Ноутбук HP Pavilion 15-cs3006ur Natural Silver",
+                            Price = 23999,
+                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / Intel Core i5-1135G7 (2.4 - 4.2 ГГц) / RAM 8 ГБ / SSD 256 ГБ / Intel Iris Xe Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / Windows 11 Home / 1.75 кг / сріблястий",
+                            GraphicCard = "Intel Iris Xe Graphics",
+                            Processor = "Intel Core i5",
+                            RAM = 16.0
+                        },
+                        new
+                        {
+                            Id = "ZjgCVOUZ6mE",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2313),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Ноутбук Lenovo IdeaPad 5 Pro 16ACH6",
+                            Price = 29999,
+                            ShortDescription = "Екран 16\" IPS (2560x1600) WQXGA, матовий / AMD Ryzen 7 5800H (3.2 - 4.4 ГГц) / RAM 16 ГБ / SSD 512 ГБ / NVIDIA GeForce RTX 3050, 4 ГБ / без ОД / Wi-Fi / Bluetooth / веб-камера / Windows 11 Home / 2.2 кг / сірий",
+                            GraphicCard = "RTX 3050",
+                            Processor = "AMD Ryzen 7",
+                            RAM = 2.0
+                        },
+                        new
+                        {
+                            Id = "55LcIJu2KpP",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2315),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
+                            Price = 28999,
+                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 8 ГБ / SSD 128 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
+                            GraphicCard = "RTX 3070",
+                            Processor = "Intel Core i7",
+                            RAM = 3.0
+                        },
+                        new
+                        {
+                            Id = "HAJ--QhNcHt",
+                            CategoryId = "JFMwotDdZNz",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2318),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Ноутбук Acer Aspire 7 A715-42G-R3EZ (NH.QBFEU.00C) Charcoal Black",
+                            Price = 28999,
+                            ShortDescription = "Екран 15.6\" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / nVidia GeForce GTX 1650, 4 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / без ОС / 2.15 кг / чорний",
+                            GraphicCard = "RTX 3060",
+                            Processor = "Intel Core i5",
+                            RAM = 1.0
                         });
                 });
 
@@ -849,11 +1507,12 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "PelHVxQmn8-",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7529),
+                            Id = "QXFjRrimIZD",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2373),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Мобільний телефон Apple iPhone 14 Pro Max 128GB Deep Purple",
                             Price = 54999,
@@ -863,11 +1522,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "LyQB8y0WPUe",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7532),
+                            Id = "938kYMQ6YD_",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2376),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Мобільний телефон Apple i111",
                             Price = 54999,
@@ -877,11 +1537,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "V04Tq-33pUS",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7535),
+                            Id = "uTy0b5fjlBN",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2378),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Мобільний телефон Apple i222",
                             Price = 54999,
@@ -891,11 +1552,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "ZBLZP_-1_pi",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7537),
+                            Id = "SkHRhpGZYxa",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2380),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Мобільний телефон Apple i333313",
                             Price = 54999,
@@ -905,11 +1567,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "l9aktPJblrx",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7539),
+                            Id = "9maYYCTeCU-",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2382),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Мо4444444 4414 Pro Max 128GB Deep Purple",
                             Price = 54999,
@@ -919,11 +1582,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "4QuVsDU2Zln",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7541),
+                            Id = "9aqWnqAwPmq",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2384),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "М55555555 Deep Purple",
                             Price = 54999,
@@ -933,11 +1597,12 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "WafSv6iL8Kl",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7544),
+                            Id = "DaQ5_0nnthZ",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2387),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Мобільний 66666666B Deep Purple",
                             Price = 54999,
@@ -947,17 +1612,78 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "wDnb3sWx34u",
-                            CategoryId = "baADvNdQR7R",
-                            DateCreated = new DateTime(2023, 7, 11, 20, 49, 10, 926, DateTimeKind.Local).AddTicks(7546),
+                            Id = "GnLcBELByjy",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2389),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
+                            Dicount = 0,
                             IsDelete = false,
                             Name = "Мобіл77777777 28GB Deep Purple",
                             Price = 54999,
                             ShortDescription = "Екран (6.7\", OLED (Super Retina XDR), 2796x1290) / Apple A16 Bionic / основна квадро-камера: 48 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / iOS 16",
                             BatteryCapacity = 4600,
                             DisplayDiagonal = 4.9000000000000004
+                        },
+                        new
+                        {
+                            Id = "DyhZ-Qm3RUe",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2391),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Мобільний телефон Google Pixel 7",
+                            Price = 32999,
+                            ShortDescription = "Екран (6.2\", OLED, 2400x1080) / Qualcomm Snapdragon 778G / основна камера: 64 Мп + 16 Мп + 12 Мп, фронтальна камера: 12 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / eSIM / Android 12",
+                            BatteryCapacity = 4500,
+                            DisplayDiagonal = 6.2000000000000002
+                        },
+                        new
+                        {
+                            Id = "6xNhyanBp7i",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2393),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Мобільний телефон Sony Xperia 1 IV",
+                            Price = 74999,
+                            ShortDescription = "Екран (6.5\", OLED, 3840x1644) / Qualcomm Snapdragon 888 / основна камера: 64 Мп + 16 Мп + 12 Мп, фронтальна камера: 10 Мп / 256 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / Android 12",
+                            BatteryCapacity = 5000,
+                            DisplayDiagonal = 6.5
+                        },
+                        new
+                        {
+                            Id = "jl5r0PmjfFJ",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2395),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Мобільний телефон Xiaomi Mi 12",
+                            Price = 39999,
+                            ShortDescription = "Екран (6.81\", OLED, 3200x1440) / Qualcomm Snapdragon 8 Gen 1 / основна квадро-камера: 50 Мп + 12 Мп + 8 Мп + 2 Мп, фронтальна камера: 32 Мп / 256 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Dual SIM / Android 12",
+                            BatteryCapacity = 5000,
+                            DisplayDiagonal = 6.8099999999999996
+                        },
+                        new
+                        {
+                            Id = "O5JrjbFj983",
+                            CategoryId = "Ypzpp28bZSi",
+                            DateCreated = new DateTime(2023, 8, 1, 21, 56, 45, 105, DateTimeKind.Local).AddTicks(2397),
+                            DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Доооооовгий опис",
+                            Dicount = 0,
+                            IsDelete = false,
+                            Name = "Мобільний телефон Samsung Galaxy S22",
+                            Price = 45999,
+                            ShortDescription = "Екран (6.1\", Dynamic AMOLED 2X, 1080x2400) / Samsung Exynos 2200 / основна квадро-камера: 50 Мп + 12 Мп + 12 Мп + 12 Мп, фронтальна камера: 10 Мп / 128 ГБ вбудованої пам'яті / 3G / LTE / 5G / GPS / Nano-SIM / Android 12",
+                            BatteryCapacity = 4000,
+                            DisplayDiagonal = 6.0999999999999996
                         });
                 });
 
@@ -1034,11 +1760,45 @@ namespace SmartBuyApi.Migrations
                     b.Navigation("FilterName");
                 });
 
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.ImageEntity", b =>
+                {
+                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", "Category")
+                        .WithOne("Image")
+                        .HasForeignKey("SmartBuyApi.Data.DataBase.Entities.ImageEntity", "CategoryId");
+
+                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.ProductEntity", "Product")
+                        .WithMany("Images")
+                        .HasForeignKey("ProductId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.RefreshToken", b =>
                 {
                     b.HasOne("SmartBuyApi.DataBase.Tables.SmartUser", null)
                         .WithMany("RefreshTokens")
                         .HasForeignKey("SmartUserId");
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.ReviewEntity", b =>
+                {
+                    b.HasOne("SmartBuyApi.DataBase.Tables.SmartUser", "Author")
+                        .WithMany("Comments")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.ProductEntity", "Product")
+                        .WithMany("Comments")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
@@ -1050,17 +1810,6 @@ namespace SmartBuyApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductImageEntity", b =>
-                {
-                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.ProductEntity", "Product")
-                        .WithMany("Images")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -1083,17 +1832,24 @@ namespace SmartBuyApi.Migrations
                 {
                     b.Navigation("FilterNames");
 
+                    b.Navigation("Image")
+                        .IsRequired();
+
                     b.Navigation("Products");
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.ProductEntity", b =>
                 {
+                    b.Navigation("Comments");
+
                     b.Navigation("Images");
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.SmartUser", b =>
                 {
                     b.Navigation("Adresses");
+
+                    b.Navigation("Comments");
 
                     b.Navigation("RefreshTokens");
                 });

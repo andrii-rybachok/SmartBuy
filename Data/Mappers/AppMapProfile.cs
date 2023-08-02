@@ -26,10 +26,13 @@ namespace SmartBuyApi.Data.Mappers
 			CreateMap<ProductEntity, ProductItemDTO>()
                 .ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.Category.Name));
             CreateMap<ProductCreateDTO, ProductEntity>()
-                .ForMember(x => x.CategoryId, opt => opt.MapFrom(x => x.CategoryId.IsNullOrEmpty() ? null : x.CategoryId))
-                /*.ForMember(x => x.Image, opt => opt.Ignore())*/;
+                .ForMember(x => x.CategoryId, opt => opt.MapFrom(x => x.CategoryId.IsNullOrEmpty() ? null : x.CategoryId));
 
-            CreateMap<ProductEntity, ProductShowDTO>();
+            CreateMap<ProductEntity, ProductShowDTO>()
+                .ForMember(x => x.Rating, opt => opt.MapFrom(s => s.Rating))
+                .ForMember(x=>x.CountOfReviews,opt=>opt.MapFrom(s=>s.Comments.Count))
+                .ForMember(x=>x.ImageName,opt=>opt.MapFrom(s=>s.Images.FirstOrDefault(x=>x.Priority==1).Name));
+
 			CreateMap<FilterValue, FilterValueShowDTO>();
 
 			CreateMap<FilterValue, FilterValueGetDTO>();
@@ -43,6 +46,9 @@ namespace SmartBuyApi.Data.Mappers
 			CreateMap<CategoryEntity, CategoryGetDTO>()
 				.ForMember(x => x.Filters, act => act.MapFrom(x => x.FilterNames));
 
+            CreateMap<CategoryEntity, CategorySearchDTO>();
+            CreateMap<ProductEntity, ProductSearchDTO>();
+
 		}
-    }
+	}
 }

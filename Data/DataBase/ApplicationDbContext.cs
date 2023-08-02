@@ -8,7 +8,7 @@ using SmartBuyApi.Data.DataBase.Tables;
 
 
 using SmartBuyApi.DataBase.Tables;
-
+using System.ComponentModel;
 
 namespace SmartBuyApi.DataBase
 {
@@ -24,7 +24,8 @@ namespace SmartBuyApi.DataBase
 		public DbSet<Adress> Adresses { get; set; }
 		public DbSet<CategoryEntity> Categories { get; set; }
 		public DbSet<ProductEntity> Products { get; set; }
-
+		public DbSet<ReviewEntity> Comments { get; set; }
+		public DbSet<ImageEntity> Images { get; set; }
 		public DbSet<Telephone> Telephones { get; set; }
 		public DbSet<Laptop> Laptops { get; set; }
 
@@ -32,7 +33,6 @@ namespace SmartBuyApi.DataBase
 		public DbSet<FilterName> FilterNames { get; set; }
 		public DbSet<FilterValue> FilterValues { get; set; }
 
-		public DbSet<ProductImageEntity> Images { get; set; }
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			
@@ -45,6 +45,25 @@ namespace SmartBuyApi.DataBase
 			modelBuilder.Entity<SmartUser>()
 				.HasMany(x => x.RefreshTokens);
 
+			modelBuilder.Entity<SmartUser>()
+				.HasMany(x => x.Comments)
+				.WithOne(x=>x.Author)
+				.HasForeignKey(x=>x.AuthorId);
+
+			modelBuilder.Entity<ProductEntity>()
+				.HasMany(x=>x.Comments)
+				.WithOne(x=>x.Product)
+				.HasForeignKey(x=>x.ProductId);
+			modelBuilder.Entity<ProductEntity>()
+			.HasMany(x => x.Images)
+			.WithOne(x=>x.Product)
+			.HasForeignKey(x=>x.ProductId);
+
+			modelBuilder.Entity<ProductEntity>()
+				.Ignore(x => x.Rating);
+			modelBuilder.Entity<ProductEntity>()
+				.Ignore(x => x.ActualPrice);
+
 			modelBuilder.Entity<Adress>()
 				.HasOne(x => x.User)
 				.WithMany(x => x.Adresses);
@@ -56,6 +75,10 @@ namespace SmartBuyApi.DataBase
 				.WithOne(x => x.Category)
 				.HasForeignKey(x=>x.CategoryId);
 
+			modelBuilder.Entity<ImageEntity>()
+			.HasOne(x => x.Category)
+			.WithOne(x=>x.Image)
+			.HasForeignKey<ImageEntity>(x=>x.CategoryId);
 
 			modelBuilder.Entity<FilterName>()
 				.HasMany(x => x.Values)
