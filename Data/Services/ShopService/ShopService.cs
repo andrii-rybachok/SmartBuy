@@ -2,10 +2,12 @@
 using Duende.IdentityServer.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
+using SmartBuyApi.Data.DataBase.Entities;
 using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO.Category;
 using SmartBuyApi.Data.Models.DTO.Filters.Name;
 using SmartBuyApi.Data.Models.DTO.Filters.Value;
+using SmartBuyApi.Data.Models.DTO.GlobalCategory;
 using SmartBuyApi.Data.Models.DTO.Product;
 using SmartBuyApi.DataBase;
 using System.Reflection;
@@ -25,10 +27,10 @@ namespace SmartBuyApi.Data.Services.ShopService
 			_mapper = mapper;
 		}
 
-		public async Task<List<CategoryItemDTO>> GetAllCategories()
+		public async Task<List<GlobalCategoryShowDTO>> GetGlobalCategories()
 		{
-			var categories = await _context.Categories.ToListAsync();
-			return _mapper.Map<List<CategoryEntity>, List<CategoryItemDTO>>(categories);
+			var glCategories = await _context.GlobalCategories.Include(x=>x.Categories).ThenInclude(x=>x.Image).Where(x=>x.Categories.Count>0).ToListAsync();
+			return _mapper.Map<List<GlobalCategoryEntity>, List<GlobalCategoryShowDTO>>(glCategories);
 		}
 
 		public async Task<CategoryShowDTO> GetCategoryById(string id)

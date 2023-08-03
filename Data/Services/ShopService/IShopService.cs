@@ -1,6 +1,7 @@
 ﻿using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO.Category;
 using SmartBuyApi.Data.Models.DTO.Filters.Name;
+using SmartBuyApi.Data.Models.DTO.GlobalCategory;
 using SmartBuyApi.Data.Models.DTO.Product;
 
 namespace SmartBuyApi.Data.Services.ShopService
@@ -8,7 +9,7 @@ namespace SmartBuyApi.Data.Services.ShopService
 	public interface IShopService
 	{
 		Task<CategoryShowDTO> GetCategoryById(string id);
-		Task<List<CategoryItemDTO>> GetAllCategories();
+		Task<List<GlobalCategoryShowDTO>> GetGlobalCategories();
 
 
 		Task<CategoryShowDTO> GetCategoryByFilters(List<FilterNameGetDTO> filters, string categoryId);

@@ -5,6 +5,7 @@ using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO.Category;
 using SmartBuyApi.Data.Models.DTO.Filters.Name;
 using SmartBuyApi.Data.Models.DTO.Filters.Value;
+using SmartBuyApi.Data.Models.DTO.GlobalCategory;
 using SmartBuyApi.Data.Models.DTO.Product;
 using SmartBuyApi.Data.Models.DTO.Users;
 using SmartBuyApi.DataBase.Tables;
@@ -15,7 +16,8 @@ namespace SmartBuyApi.Data.Mappers
     {
         public AppMapProfile()
         {
-            CreateMap<CategoryEntity, CategoryItemDTO>();
+            CreateMap<CategoryEntity, CategoryItemDTO>()
+                .ForMember(x=>x.Image,opt=>opt.MapFrom(s=>s.Image.Name));
 
             CreateMap<CategoryCreateDTO, CategoryEntity>()
                 .ForMember(x => x.Image, opt => opt.Ignore());
@@ -42,6 +44,8 @@ namespace SmartBuyApi.Data.Mappers
 
             CreateMap<CategoryEntity, CategoryShowDTO>()
                 .ForMember(x=>x.Filters,act=>act.MapFrom(x=>x.FilterNames));
+			CreateMap<GlobalCategoryEntity, GlobalCategoryShowDTO>()
+                .ForMember(x=>x.Image,opt=>opt.MapFrom(s=>s.Image.Name));
 
 			CreateMap<CategoryEntity, CategoryGetDTO>()
 				.ForMember(x => x.Filters, act => act.MapFrom(x => x.FilterNames));

@@ -17,74 +17,80 @@ namespace SmartBuyApi.Data.DataBase
         public void Seed()
         {
             var factory = new IdFactory(characterCount: 11);
-
+            var globalCategories = new List<GlobalCategoryEntity>()
+            {
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Смартфони та планшети"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Комп’ютери та ноутбуки"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Фото та відео"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Аудіо"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Мультимедіа"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Ігрова техніка"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Побутова техніка"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Електронні гаджети"},
+                new GlobalCategoryEntity(){Id=factory.Generate(), Name="Електро-інструменти"},
+            };
+            modelBuilder.Entity<GlobalCategoryEntity>().HasData(globalCategories);
 
             var categories = new List<CategoryEntity>
             {
-                   new CategoryEntity {
-                       Id=factory.Generate(),
-                       Name = "Комп'ютери та ноутбуки",
-                       //Priority = 1,
-                       IsDelete = false,
-                       //DisplayOrder = 10,
-                       DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
-                       DateLastEdit = default,
-                       Description = "description", },
-                   new CategoryEntity {
+				    new CategoryEntity {
+					   Id=factory.Generate(),
+					   Name = "Ноутбуки, ультрабуки та мінібуки",
+					   IsDelete = false,
+					   DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
+					   DateLastEdit = default,
+					   Description = "description",
+					   GlobalCategoryId=globalCategories.ElementAt(1).Id,
+				   },
+				   new CategoryEntity {
                        Id=factory.Generate(),
                        Name = "Смартфони",
-                       //Priority = 1,
                        IsDelete = false,
-                      //DisplayOrder = 10,
                        DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                        DateLastEdit = default,
-                       Description = "description", },
+                       Description = "description",
+                       GlobalCategoryId=globalCategories.ElementAt(0).Id,
+                   },
                    new CategoryEntity {
                        Id=factory.Generate(),
-                       Name = "Побутова техніка",
-                       //Priority = 1,
+                       Name = "Планшети",
                        IsDelete = false,
-                       //DisplayOrder = 10,
                        DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                        DateLastEdit = default,
-                       Description = "description", },
+                       Description = "description",
+                       GlobalCategoryId=globalCategories.ElementAt(0).Id,
+                   },
                    new CategoryEntity {
                        Id=factory.Generate(),
-                       Name = "Дача, сад, город",
-                       //Priority = 1,
+                       Name = "Аксесуари для смартфонів і планшетів",
                        IsDelete = false,
-                       //DisplayOrder = 10,
                        DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                        DateLastEdit = default,
-                       Description = "description", },
+                       Description = "description",
+                       GlobalCategoryId=globalCategories.ElementAt(0).Id,
+                   },
+
+
                    new CategoryEntity {
                        Id=factory.Generate(),
-                       Name = "Спорт і захоплення",
-                       //Priority = 1,
+                       Name = "настільні ПК",
                        IsDelete = false,
-                       //DisplayOrder = 10,
                        DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                        DateLastEdit = default,
-                       Description = "description", },
+                       Description = "description",
+                       GlobalCategoryId=globalCategories.ElementAt(1).Id,
+                   },
                    new CategoryEntity {
                        Id=factory.Generate(),
-                       Name = "Офіс, школа, книги",
-                       //Priority = 1,
+                       Name = "монітори",
                        IsDelete = false,
-                       //DisplayOrder = 10,
                        DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                        DateLastEdit = default,
-                       Description = "description", },
-                   new CategoryEntity {
-                       Id=factory.Generate(),
-                       Name = "test",
-                       //Priority = 1,
-                       IsDelete = false,
-                       //DisplayOrder = 10,
-                       DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
-                       DateLastEdit = default,
-                       Description = "description test", }
-            };
+                       Description = "description",
+                       GlobalCategoryId=globalCategories.ElementAt(1).Id,
+                   },
+                  
+			};
 
             modelBuilder.Entity<CategoryEntity>().HasData(categories);
 
@@ -374,7 +380,7 @@ namespace SmartBuyApi.Data.DataBase
                 images.AddRange(new ImageEntity[]
                 {
                     new ImageEntity(){Id=factory.Generate(),Name=b+"_1.webp",ProductId=laptops[i].Id,Priority=1},
-                    new ImageEntity(){Id=factory.Generate(),Name=b+"_2.webp",ProductId=laptops[i].Id,Priority=2 },
+                    new ImageEntity(){Id=factory.Generate(),Name=b+"_2.webp",ProductId=laptops[i].Id,Priority=2},
                     new ImageEntity(){Id=factory.Generate(),Name=b+"_3.webp",ProductId=laptops[i].Id,Priority=3},
                 });
                 if (b == 3)
@@ -401,9 +407,11 @@ namespace SmartBuyApi.Data.DataBase
             }
             images.AddRange(new ImageEntity[]
             {
-                new ImageEntity(){Id=factory.Generate(),Name="3_1.webp",CategoryId=categories[0].Id,Priority=1},
-                new ImageEntity(){Id=factory.Generate(),Name="5_1.webp",CategoryId=categories[1].Id, Priority = 1}
-            });
+                new ImageEntity(){Id=factory.Generate(),Name="laptops.webp",CategoryId=categories[0].Id,GlobalCategoryId=globalCategories[1].Id,Priority=1},
+				new ImageEntity(){Id=factory.Generate(),Name="tablets.webp",GlobalCategoryId=globalCategories[0].Id, Priority = 1},
+                new ImageEntity(){Id=factory.Generate(),Name="telephones.webp",CategoryId=categories[1].Id, Priority = 1},
+
+			});
             modelBuilder.Entity<ImageEntity>().HasData(images);
         }
     }

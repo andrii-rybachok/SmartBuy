@@ -30,7 +30,7 @@ namespace SmartBuyApi.Controllers
 		[HttpGet("categories")]
 		public async Task<IActionResult> GetAllCategories()
 		{
-			var categories = await _shopService.GetAllCategories();
+			var categories = await _shopService.GetGlobalCategories();
 			return Ok(categories);
 		}
 

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SmartBuyApi.Data.DataBase.Entities;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartBuyApi.DataBase.Tables
 {
-    public class SmartUser : IdentityUser
+
+	public class SmartUser : IdentityUser
 	{
 		public SmartUser()
 		{

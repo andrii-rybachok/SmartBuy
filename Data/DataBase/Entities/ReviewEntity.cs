@@ -1,8 +1,11 @@
 ﻿using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.DataBase.Tables;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartBuyApi.Data.DataBase.Entities
 {
+	[Table("tbl_Reviews")]
+
 	public class ReviewEntity
 	{
 		public string Id { get; set; }

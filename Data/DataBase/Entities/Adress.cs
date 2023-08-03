@@ -1,4 +1,6 @@
-﻿namespace SmartBuyApi.DataBase.Tables
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SmartBuyApi.DataBase.Tables
 {
 	public class Adress
 	{
