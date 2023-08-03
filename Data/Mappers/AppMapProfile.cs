@@ -5,6 +5,7 @@ using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO.Category;
 using SmartBuyApi.Data.Models.DTO.Filters.Name;
 using SmartBuyApi.Data.Models.DTO.Filters.Value;
+using SmartBuyApi.Data.Models.DTO.GlobalCategory;
 using SmartBuyApi.Data.Models.DTO.Product;
 using SmartBuyApi.Data.Models.DTO.Users;
 using SmartBuyApi.DataBase.Tables;
@@ -15,7 +16,8 @@ namespace SmartBuyApi.Data.Mappers
     {
         public AppMapProfile()
         {
-            CreateMap<CategoryEntity, CategoryItemDTO>();
+            CreateMap<CategoryEntity, CategoryItemDTO>()
+                .ForMember(x=>x.Image,opt=>opt.MapFrom(s=>s.Image.Name));
 
             CreateMap<CategoryCreateDTO, CategoryEntity>()
                 .ForMember(x => x.Image, opt => opt.Ignore());
@@ -26,10 +28,13 @@ namespace SmartBuyApi.Data.Mappers
 			CreateMap<ProductEntity, ProductItemDTO>()
                 .ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.Category.Name));
             CreateMap<ProductCreateDTO, ProductEntity>()
-                .ForMember(x => x.CategoryId, opt => opt.MapFrom(x => x.CategoryId.IsNullOrEmpty() ? null : x.CategoryId))
-                /*.ForMember(x => x.Image, opt => opt.Ignore())*/;
+                .ForMember(x => x.CategoryId, opt => opt.MapFrom(x => x.CategoryId.IsNullOrEmpty() ? null : x.CategoryId));
 
-            CreateMap<ProductEntity, ProductShowDTO>();
+            CreateMap<ProductEntity, ProductShowDTO>()
+                .ForMember(x => x.Rating, opt => opt.MapFrom(s => s.Rating))
+                .ForMember(x=>x.CountOfReviews,opt=>opt.MapFrom(s=>s.Comments.Count))
+                .ForMember(x=>x.ImageName,opt=>opt.MapFrom(s=>s.Images.FirstOrDefault(x=>x.Priority==1).Name));
+
 			CreateMap<FilterValue, FilterValueShowDTO>();
 
 			CreateMap<FilterValue, FilterValueGetDTO>();
@@ -39,10 +44,15 @@ namespace SmartBuyApi.Data.Mappers
 
             CreateMap<CategoryEntity, CategoryShowDTO>()
                 .ForMember(x=>x.Filters,act=>act.MapFrom(x=>x.FilterNames));
+			CreateMap<GlobalCategoryEntity, GlobalCategoryShowDTO>()
+                .ForMember(x=>x.Image,opt=>opt.MapFrom(s=>s.Image.Name));
 
 			CreateMap<CategoryEntity, CategoryGetDTO>()
 				.ForMember(x => x.Filters, act => act.MapFrom(x => x.FilterNames));
 
+            CreateMap<CategoryEntity, CategorySearchDTO>();
+            CreateMap<ProductEntity, ProductSearchDTO>();
+
 		}
-    }
+	}
 }

@@ -1,5 +1,4 @@
-﻿using SmartBuyApi.Data.DataBase.Tables;
-using SmartBuyApi.Data.Models.DTO.Filters;
+﻿
 using SmartBuyApi.Data.Models.DTO.Filters.Name;
 using SmartBuyApi.Data.Models.DTO.Product;
 

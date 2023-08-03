@@ -6,5 +6,8 @@ namespace SmartBuyApi.Data.DataBase.Entities.SpecializedProducts
 	{
 		public string Processor { get; set; }
 		public string GraphicCard { get; set; }
+
+		//In gigabytes
+		public double RAM { get; set; }
 	}
 }
