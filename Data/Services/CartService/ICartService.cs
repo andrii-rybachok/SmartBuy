@@ -4,10 +4,10 @@ namespace SmartBuyApi.Data.Services
 {
     public interface ICartService
     {
-        Task<CartItemDto> AddItem(CartItemToAddDto cartItemToAdd);
-        Task<CartItemDto> GetItem(int itemId);
-        Task<CartItemDto> RemoveItem(int itemId);
-        Task<CartItemDto> UpdateItem(CartItemToUpdateDto cartItemToUpdate);
-        Task<List<CartItemDto>> GetAll(int userId);
+        Task<CartItemDTO> AddItem(CartItemToAddDTO cartItemToAdd);
+        Task<CartItemDTO> GetItem(string itemId);
+        Task<CartItemDTO> RemoveItem(string itemId);
+        Task<CartItemDTO> UpdateItem(CartItemToUpdateDTO cartItemToUpdate);
+        Task<List<CartItemDTO>> GetAll(int userId);
     }
 }

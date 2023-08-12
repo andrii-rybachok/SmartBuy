@@ -70,12 +70,12 @@ namespace SmartBuyApi.Data.Services
             }
         }
 
-        public Task<CartItemDTO> GetItem(int itemId)
+        public Task<CartItemDTO> GetItem(string itemId)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<CartItemDTO> RemoveItem(int itemId)
+        public async Task<CartItemDTO> RemoveItem(string itemId)
         {
             try
             {

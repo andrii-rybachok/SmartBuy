@@ -8,7 +8,7 @@ namespace SmartBuyApi.Data.Models.DTO
 {
 	public class CartItemToUpdateDTO
 	{
-        public int Id { get; set; }
+        public string Id { get; set; }
         public int Qty { get; set; }
     }
 }
