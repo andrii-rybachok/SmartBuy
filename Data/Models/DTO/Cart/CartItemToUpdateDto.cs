@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopOnline.Models.Dtos
+namespace SmartBuyApi.Data.Models.DTO
 {
-	public class CartItemToUpdateDto
+	public class CartItemToUpdateDTO
 	{
         public int Id { get; set; }
         public int Qty { get; set; }

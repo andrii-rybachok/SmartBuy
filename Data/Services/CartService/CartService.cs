@@ -15,11 +15,11 @@ namespace SmartBuyApi.Data.Services
         }
 
 
-        public async Task<CartItemDto> AddItem(CartItemToAddDto cartItemToAdd)
+        public async Task<CartItemDTO> AddItem(CartItemToAddDTO cartItemToAdd)
         {
             try
             {
-                var response = await httpClient.PostAsJsonAsync<CartItemToAddDto>
+                var response = await httpClient.PostAsJsonAsync<CartItemToAddDTO>
                     ($"api/Cart/AddItem", cartItemToAdd);
 
                 if (response.IsSuccessStatusCode)
@@ -29,7 +29,7 @@ namespace SmartBuyApi.Data.Services
                         return default;
                     }
 
-                    return await response.Content.ReadFromJsonAsync<CartItemDto>();
+                    return await response.Content.ReadFromJsonAsync<CartItemDTO>();
                 }
                 else
                 {
@@ -43,7 +43,7 @@ namespace SmartBuyApi.Data.Services
             }
         }
 
-        public async Task<List<CartItemDto>> GetAll(int userId)
+        public async Task<List<CartItemDTO>> GetAll(int userId)
         {
             try
             {
@@ -52,9 +52,9 @@ namespace SmartBuyApi.Data.Services
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                     {
-                        return new List<CartItemDto>();
+                        return new List<CartItemDTO>();
                     }
-                    return await response.Content.ReadFromJsonAsync<List<CartItemDto>>();
+                    return await response.Content.ReadFromJsonAsync<List<CartItemDTO>>();
                 }
                 else
                 {
@@ -70,12 +70,12 @@ namespace SmartBuyApi.Data.Services
             }
         }
 
-        public Task<CartItemDto> GetItem(int itemId)
+        public Task<CartItemDTO> GetItem(int itemId)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<CartItemDto> RemoveItem(int itemId)
+        public async Task<CartItemDTO> RemoveItem(int itemId)
         {
             try
             {
@@ -84,9 +84,9 @@ namespace SmartBuyApi.Data.Services
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        return default(CartItemDto);
+                        return default(CartItemDTO);
                     }
-                    return await response.Content.ReadFromJsonAsync<CartItemDto>();
+                    return await response.Content.ReadFromJsonAsync<CartItemDTO>();
                 }
                 else
                 {
@@ -101,7 +101,7 @@ namespace SmartBuyApi.Data.Services
             }
         }
 
-        public async Task<CartItemDto> UpdateItem(CartItemToUpdateDto cartItemToUpdate)
+        public async Task<CartItemDTO> UpdateItem(CartItemToUpdateDTO cartItemToUpdate)
         {
             try
             {
@@ -113,9 +113,9 @@ namespace SmartBuyApi.Data.Services
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        return default(CartItemDto);
+                        return default(CartItemDTO);
                     }
-                    return await response.Content.ReadFromJsonAsync<CartItemDto>();
+                    return await response.Content.ReadFromJsonAsync<CartItemDTO>();
                 }
                 else
                 {
