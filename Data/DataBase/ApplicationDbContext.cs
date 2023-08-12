@@ -49,9 +49,12 @@ namespace SmartBuyApi.DataBase
 				.HasMany(x => x.Comments)
 				.WithOne(x => x.Author)
 				.HasForeignKey(x => x.AuthorId);
-
+			modelBuilder.Entity<SmartUser>()
+			.HasMany(x => x.LikedProducts)
+			.WithOne(x => x.UserLike)
+			.HasForeignKey(x => x.UserLikeId);
 			modelBuilder.Entity<ProductEntity>()
-				.HasMany(x => x.Comments)
+				.HasMany(x => x.Reviews)
 				.WithOne(x => x.Product)
 				.HasForeignKey(x => x.ProductId);
 			modelBuilder.Entity<ProductEntity>()

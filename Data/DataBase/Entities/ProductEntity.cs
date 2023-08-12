@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using SmartBuyApi.Data.DataBase.Entities;
+using SmartBuyApi.DataBase.Tables;
 
 namespace SmartBuyApi.Data.DataBase.Tables
 {
@@ -23,7 +24,7 @@ namespace SmartBuyApi.Data.DataBase.Tables
 
         public int ActualPrice => Dicount == 1 ? Price : (int)Math.Round((double)Price-(Price/100*Dicount));
 
-        public double Rating =>Comments.Count>0? Comments.Sum(x => x.Rating) / Comments.Count:0;
+        public double Rating =>Reviews.Count>0? Reviews.Sum(x => x.Rating) / Reviews.Count:0;
 
         public bool IsDelete { get; set; }
         public DateTime DateCreated { get; set; }
@@ -34,13 +35,14 @@ namespace SmartBuyApi.Data.DataBase.Tables
         public string? CategoryId { get; set; } 
         
         public CategoryEntity Category { get; set; }
-
-		public List<ImageEntity> Images { get; set; }
-        public List<ReviewEntity> Comments { get; set; }
+        public SmartUser? UserLike { get; set; }
+        public string? UserLikeId { get; set; }
+        public List<ImageEntity> Images { get; set; }
+        public List<ReviewEntity> Reviews { get; set; }
 
         public ProductEntity()
         {
-            Comments= new List<ReviewEntity>();
+			Reviews = new List<ReviewEntity>();
             Images = new List<ImageEntity>();
         }
 	}

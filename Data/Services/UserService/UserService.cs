@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SmartBuyApi.Authorization;
 using SmartBuyApi.Data.DataBase.Entities;
@@ -17,23 +18,30 @@ namespace SmartBuyApi.Data.Services.UserService
 		private readonly IHttpContextAccessor _httpContextAccessor;
 		private readonly ApplicationDbContext _context;
 		private readonly SignInManager<SmartUser> _signInManager;
+		private readonly UserManager<SmartUser> _userManager;
+		private readonly IMapper _mapper;
 
-		public UserService(IJwtUtils jwtUtils, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, SignInManager<SmartUser> signInManager, ApplicationDbContext context)
+		public UserService(IJwtUtils jwtUtils, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, SignInManager<SmartUser> signInManager, ApplicationDbContext context, IMapper mapper, UserManager<SmartUser> userManager)
 		{
 			_jwtUtils = jwtUtils;
 			_configuration = configuration;
 			_httpContextAccessor = httpContextAccessor;
 			_signInManager = signInManager;
 			_context = context;
+			_mapper = mapper;
+			_userManager = userManager;
 		}
 
 
 		public async Task<UserDetails> Authenticate(UserLogin model, string ipAddress)
 		{
 			var user = _context.Users.SingleOrDefault(x => x.Email == model.Email);
-
+			if(user== null)
+			{
+				throw new Exception("Username or password is incorrect");
+			}
 			var isPasswordRight =await _signInManager.CheckPasswordSignInAsync(user,model.Password,false);
-			if (user == null || !isPasswordRight.Succeeded)
+			if (!isPasswordRight.Succeeded)
 				throw new Exception("Username or password is incorrect");
 
 			// authentication successful so generate jwt and refresh tokens
@@ -50,7 +58,34 @@ namespace SmartBuyApi.Data.Services.UserService
 
 			return new UserDetails(user.Id,user.FirstName,user.LastName,user.Email,jwtToken,refreshToken.Token);
 		}
+		public async Task<UserDetails> Register(UserRegister model, string ipAddress)
+		{
+			var user = _context.Users.SingleOrDefault(x => x.Email == model.Email);
+			if (user != null)
+			{
+				throw new Exception("Such user already exists");
+			}
+			user = _mapper.Map<SmartUser>(model);
+			user.UserName = model.Email;
+			var result = await _userManager.CreateAsync(user, model.Password);
+			if (!result.Succeeded)
+			{
+				throw new Exception(result.Errors.ElementAt(0).Description);
+			}
+			//await _userManager.AddToRoleAsync(user, "customer");
 
+
+			var jwtToken = _jwtUtils.GenerateJwtToken(user);
+			var refreshToken = _jwtUtils.GenerateRefreshToken(ipAddress);
+			user.RefreshTokens.Add(refreshToken);
+
+			removeOldRefreshTokens(user);
+
+			_context.Update(user);
+			_context.SaveChanges();
+
+			return new UserDetails(user.Id, user.FirstName, user.LastName, user.Email, jwtToken, refreshToken.Token);
+		}
 		public UserDetails RefreshToken(string token, string ipAddress)
 		{
 			var user = getUserByRefreshToken(token);
@@ -112,7 +147,7 @@ namespace SmartBuyApi.Data.Services.UserService
 
 
 
-		private SmartUser getUserByRefreshToken(string token)
+		public SmartUser getUserByRefreshToken(string token)
 		{
 			var user = _context.Users.Include(x=>x.RefreshTokens).SingleOrDefault(u => u.RefreshTokens.Any(t => t.Token == token));
 

@@ -18,6 +18,26 @@ namespace SmartBuyApi.Data.DataBase.Entities
 		public string FilterNameId { get; set; }
 		public FilterName FilterName { get; set; }
 
-	
+		public bool IsInRange(string? value)
+		{
+			if (value == null)
+			{
+				return false;
+			}
+			var number = double.Parse(value);
+			if (number >= MinValue && number <= MaxValue)
+			{
+				return true;
+			}
+			return false;
+		}
+		public bool IsNumeric()
+		{
+			if (MaxValue != null && MinValue != null && MaxValue != 0 && MaxValue - MinValue >= 0)
+			{
+				return true;
+			}
+			return false;
+		}
 	}
 }

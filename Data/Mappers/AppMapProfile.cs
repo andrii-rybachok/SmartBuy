@@ -6,6 +6,7 @@ using SmartBuyApi.Data.Models.DTO.Category;
 using SmartBuyApi.Data.Models.DTO.Filters.Name;
 using SmartBuyApi.Data.Models.DTO.Filters.Value;
 using SmartBuyApi.Data.Models.DTO.GlobalCategory;
+using SmartBuyApi.Data.Models.DTO.Image;
 using SmartBuyApi.Data.Models.DTO.Product;
 using SmartBuyApi.Data.Models.DTO.Users;
 using SmartBuyApi.DataBase.Tables;
@@ -23,7 +24,7 @@ namespace SmartBuyApi.Data.Mappers
                 .ForMember(x => x.Image, opt => opt.Ignore());
 
 			CreateMap<UserRegister, SmartUser>();
-
+			CreateMap<ImageEntity, ImageShowDTO>();
 
 			CreateMap<ProductEntity, ProductItemDTO>()
                 .ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.Category.Name));
@@ -32,8 +33,9 @@ namespace SmartBuyApi.Data.Mappers
 
             CreateMap<ProductEntity, ProductShowDTO>()
                 .ForMember(x => x.Rating, opt => opt.MapFrom(s => s.Rating))
-                .ForMember(x=>x.CountOfReviews,opt=>opt.MapFrom(s=>s.Comments.Count))
-                .ForMember(x=>x.ImageName,opt=>opt.MapFrom(s=>s.Images.FirstOrDefault(x=>x.Priority==1).Name));
+                .ForMember(x=>x.CountOfReviews,opt=>opt.MapFrom(s=>s.Reviews.Count))
+                .ForMember(x=>x.ImageName,opt=>opt.MapFrom(s=>s.Images.FirstOrDefault(x=>x.Priority==1).Name))
+                .ForMember(x=>x.IsLiked,opt=>opt.MapFrom(s=>!s.UserLikeId.IsNullOrEmpty()));
 
 			CreateMap<FilterValue, FilterValueShowDTO>();
 
