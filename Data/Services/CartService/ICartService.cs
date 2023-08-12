@@ -4,7 +4,7 @@ namespace SmartBuyApi.Data.Services
 {
     public interface ICartService
     {
-        Task<CartItemDTO> AddItem(CartItemToAddDTO cartItemToAdd);
+        Task<CartItemDTO> AddItem(CartItemAddDTO cartItemToAdd);
         Task<CartItemDTO> GetItem(string itemId);
         Task<CartItemDTO> RemoveItem(string itemId);
         Task<CartItemDTO> UpdateItem(CartItemToUpdateDTO cartItemToUpdate);

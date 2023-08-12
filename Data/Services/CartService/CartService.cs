@@ -15,11 +15,11 @@ namespace SmartBuyApi.Data.Services
         }
 
 
-        public async Task<CartItemDTO> AddItem(CartItemToAddDTO cartItemToAdd)
+        public async Task<CartItemDTO> AddItem(CartItemAddDTO cartItemToAdd)
         {
             try
             {
-                var response = await httpClient.PostAsJsonAsync<CartItemToAddDTO>
+                var response = await httpClient.PostAsJsonAsync<CartItemAddDTO>
                     ($"api/Cart/AddItem", cartItemToAdd);
 
                 if (response.IsSuccessStatusCode)
