@@ -9,7 +9,7 @@ namespace SmartBuyApi.Data.Services
     {
         private readonly HttpClient httpClient;
 
-        public ShoppingCartService(HttpClient httpClient)
+        public CartService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
@@ -20,7 +20,7 @@ namespace SmartBuyApi.Data.Services
             try
             {
                 var response = await httpClient.PostAsJsonAsync<CartItemToAddDto>
-                    ($"api/ShoppingCart/AddItem", cartItemToAdd);
+                    ($"api/Cart/AddItem", cartItemToAdd);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -47,7 +47,7 @@ namespace SmartBuyApi.Data.Services
         {
             try
             {
-                var response = await httpClient.GetAsync($"api/ShoppingCart/GetAll/{userId}");
+                var response = await httpClient.GetAsync($"api/Cart/GetAll/{userId}");
                 if (response.IsSuccessStatusCode)
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
@@ -79,7 +79,7 @@ namespace SmartBuyApi.Data.Services
         {
             try
             {
-                var response = await httpClient.DeleteAsync($"api/ShoppingCart/RemoveItem/{itemId}");
+                var response = await httpClient.DeleteAsync($"api/Cart/RemoveItem/{itemId}");
                 if (response.IsSuccessStatusCode)
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -108,7 +108,7 @@ namespace SmartBuyApi.Data.Services
                 var jsonRequest = JsonConvert.SerializeObject(cartItemToUpdate);
                 var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json-patch+json");
 
-                var response = await httpClient.PatchAsync($"api/ShoppingCart/UpdateItem/{cartItemToUpdate.Id}", content);
+                var response = await httpClient.PatchAsync($"api/Cart/UpdateItem/{cartItemToUpdate.Id}", content);
                 if (response.IsSuccessStatusCode)
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
