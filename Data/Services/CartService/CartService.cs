@@ -1,8 +1,4 @@
-using System.Net.Http.Json;
-using System.Text;
-using Newtonsoft.Json;
 using SmartBuyApi.Data.Models.DTO;
-
 namespace SmartBuyApi.Data.Services
 {
     public class CartService : ICartService
