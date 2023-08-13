@@ -56,7 +56,7 @@ namespace SmartBuyAPI.Controllers
             }
 
             [HttpDelete("{id}")]
-            public IActionResult Remove(Guid id)
+            public IActionResult Remove(string id)
             {
                 var existingItem = _service.GetItem(id);
                 if (existingItem == null)
