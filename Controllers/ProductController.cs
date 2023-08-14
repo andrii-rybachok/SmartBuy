@@ -14,10 +14,9 @@ using SmartBuyApi.Data.Models.DTO.Product;
 using SmartBuyApi.DataBase;
 using Duende.IdentityServer.Extensions;
 using SmartBuyApi.Data.Models.DTO.Category;
-using SmartBuyApi.Data.DataBase.Entities;
 using SmartBuyApi.Data.Models.DTO.Filters;
 
-namespace SmartBuyAPI.Controllers
+namespace SmartBuyApi.Controllers
 {
     [Route("api/product")]
     [ApiController]
@@ -34,9 +33,9 @@ namespace SmartBuyAPI.Controllers
             _iconfiguration = iconfigoration;
         }
 
-        
 
-		[HttpGet("get")]
+
+        [HttpGet("get")]
         public async Task<ActionResult<IEnumerable<ProductItemDTO>>> Get()
         {
             var result = await _context.Products.Select(x => _mapper.Map<ProductItemDTO>(x)).ToListAsync();
@@ -55,11 +54,11 @@ namespace SmartBuyAPI.Controllers
         [HttpPost("create")]
         public async Task<ActionResult<IEnumerable<ProductCreateDTO>>> Create([FromForm] ProductCreateDTO model)
         {
-            
+
             var product = _mapper.Map<ProductEntity>(model); // CategoryEntity update CategoryCreateDTO
             product.DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
             //product.Image = ImageHelper.SaveAndGetImageName(model.Image, _iconfiguration);
-            
+
             product.CategoryId = model.CategoryId.IsNullOrEmpty() ? null : model.CategoryId;
             await _context.AddAsync(product);
             await _context.SaveChangesAsync();
@@ -69,13 +68,13 @@ namespace SmartBuyAPI.Controllers
         [HttpPut("edit")]
         public async Task<ActionResult<IEnumerable<ProductEditDTO>>> Edit([FromForm] ProductEditDTO model)
         {
-            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == model.Id);          
-            if (product == null) 
+            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == model.Id);
+            if (product == null)
                 return NotFound();
 
             product.Name = model.Name;
             product.DateLastEdit = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
-            
+
             //ImageHelper.DeleteImage(product.Image);
             //string imageNewName = ImageHelper.SaveAndGetImageName(model.ImageUpload, _iconfiguration);
             //product.Image = string.IsNullOrEmpty(imageNewName) ? product.Image : imageNewName;

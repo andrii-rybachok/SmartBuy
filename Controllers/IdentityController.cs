@@ -86,36 +86,36 @@ namespace SmartBuyApi.Controllers
 			return Ok(users);
 		}
 		[AllowAnonymous]
-		[HttpPost("Register")]
+		[HttpPost("register")]
 		public async Task<IActionResult> Register(UserRegister userModel)
 		{
-			if (!ModelState.IsValid)
+			try
 			{
-				return BadRequest("dasd");
+				var response = await _userService.Register(userModel, ipAddress());
+				setTokenCookie(response.RefreshToken);
+				return Created("", response);
 			}
-			var user = _mapper.Map<SmartUser>(userModel);
-			user.UserName=userModel.FirstName;
-			var result = await _userManager.CreateAsync(user, userModel.Password);
-			if (!result.Succeeded)
+			catch (Exception ex)
 			{
-				foreach (var error in result.Errors)
-				{
-					ModelState.TryAddModelError(error.Code, error.Description);
-				}
-				return BadRequest(ModelState);
+				return BadRequest(ex.Message);
 			}
-			await _userManager.AddToRoleAsync(user, "customer");
-			return Created("", user);
 		}
 
 		[AllowAnonymous]
 		[HttpPost("authenticate")]
 		public async Task<IActionResult> Authenticate(UserLogin request)
 		{
-			
-			var response =await _userService.Authenticate(request, ipAddress());
-			setTokenCookie(response.RefreshToken);
-			return Ok(response);
+
+			try
+			{
+				var response =await _userService.Authenticate(request, ipAddress());
+				setTokenCookie(response.RefreshToken);
+				return Ok(response);
+			}	
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
 
 		}
 		private void setTokenCookie(string token)

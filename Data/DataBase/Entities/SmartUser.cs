@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using SmartBuyApi.Data.DataBase.Entities;
+using SmartBuyApi.Data.DataBase.Tables;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartBuyApi.DataBase.Tables
@@ -20,6 +21,7 @@ namespace SmartBuyApi.DataBase.Tables
 		public List<ReviewEntity> Comments { get; set; }
 		public IEnumerable<Adress> Adresses { get; set; }
 
+		public List<ProductEntity> LikedProducts { get; set; }
 		public List<RefreshToken> RefreshTokens { get; set; }
 	}
 }

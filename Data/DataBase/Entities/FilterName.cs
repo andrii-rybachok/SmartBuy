@@ -10,6 +10,7 @@ namespace SmartBuyApi.Data.DataBase.Entities
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string PublicName { get; set; }
+		public string? Metric { get; set; }
 
 		public string CategoryId { get; set; }
 		public CategoryEntity Category { get; set; }

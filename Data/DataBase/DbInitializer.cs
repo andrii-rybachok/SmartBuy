@@ -177,10 +177,10 @@ namespace SmartBuyApi.Data.DataBase
             {
                 new FilterName(){ Name="GraphicCard", PublicName="Дискретна відеокарта",CategoryId=categories.ElementAt(0).Id},
                 new FilterName(){ Name="Processor", PublicName="Процесор",CategoryId=categories.ElementAt(0).Id},
-                new FilterName(){ Name="RAM", PublicName="Обсяг оперативної пам'яті",CategoryId=categories.ElementAt(0).Id},
+                new FilterName(){ Name="RAM", PublicName="Обсяг оперативної пам'яті",CategoryId=categories.ElementAt(0).Id,Metric="ГБ"},
 
-                new FilterName(){ Name="BatteryCapacity", PublicName="Ємність акумулятора", CategoryId=categories.ElementAt(1).Id},
-                new FilterName(){ Name="DisplayDiagonal", PublicName="Діагональ екрана",CategoryId=categories.ElementAt(1).Id},
+                new FilterName(){ Name="BatteryCapacity", PublicName="Ємність акумулятора", CategoryId=categories.ElementAt(1).Id,Metric="мА·год"},
+                new FilterName(){ Name="DisplayDiagonal", PublicName="Діагональ екрана",CategoryId=categories.ElementAt(1).Id,Metric="\""},
             };
 
             filterNames.ForEach(x => x.Id = factory.Generate());

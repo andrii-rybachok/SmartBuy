@@ -2,6 +2,7 @@
 using Duende.IdentityServer.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using SmartBuyApi.Authorization;
 using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO.Filters.Name;
 using SmartBuyApi.Data.Models.DTO.Product;
@@ -19,12 +20,14 @@ namespace SmartBuyApi.Controllers
 		private readonly IShopService _shopService;
 		private readonly IMapper _mapper;
 		private readonly IProductService _productService;
+		private readonly IJwtUtils _jwtService;
 
-		public ShopController(IShopService shopService, IMapper mapper, IProductService productService)
+		public ShopController(IShopService shopService, IMapper mapper, IProductService productService, IJwtUtils jwtService)
 		{
 			_shopService = shopService;
 			_mapper = mapper;
 			_productService = productService;
+			_jwtService = jwtService;
 		}
 
 		[HttpGet("categories")]
@@ -39,7 +42,7 @@ namespace SmartBuyApi.Controllers
 		public async Task<IActionResult> GetCategoryById(string categoryId)
 		{
 			var category = await _shopService.GetCategoryById(categoryId);
-			if(category== null)
+			if (category == null)
 			{
 				return BadRequest("This category doesnt exist");
 			}
@@ -54,7 +57,7 @@ namespace SmartBuyApi.Controllers
 			return Ok(category);
 		}
 
-		
+
 		[HttpPost("search")]
 		public async Task<IActionResult> FilterSearchProducts(string searchText, [FromBody(EmptyBodyBehavior = EmptyBodyBehavior.Allow)] List<FilterNameGetDTO>? filterNames)
 		{
@@ -94,6 +97,8 @@ namespace SmartBuyApi.Controllers
 		{
 			return Ok(_productService.GetPromotedProducts());
 		}
+
+
 		async Task<IActionResult> GetProductsBySearch(string searchText)
 		{
 			SearchResponse response = new SearchResponse();
@@ -116,6 +121,27 @@ namespace SmartBuyApi.Controllers
 				}
 			}
 			return NotFound("Nothing was founded");
+		}
+
+		[HttpGet("productById")]
+		public async Task<IActionResult> GetProductById(string id)
+		{
+			var product = await _productService.GetProductByIdAsync(id);
+			if (product == null)
+			{
+				return BadRequest("Invalid product id");
+			}
+			return Ok(product);
+		}
+		[Authorize]
+		[HttpPost("like")]
+		public async Task<IActionResult> LikeProductById(string productId)
+		{
+			var token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+			var userId = _jwtService.ValidateJwtToken(token);
+
+			var res = _productService.LikeProduct(userId, productId);
+			return Ok();
 		}
 	}
 }

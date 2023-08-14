@@ -1,4 +1,5 @@
-﻿using SmartBuyApi.Data.Models.DTO.Product;
+﻿using SmartBuyApi.Data.DataBase.Tables;
+using SmartBuyApi.Data.Models.DTO.Product;
 
 namespace SmartBuyApi.Data.Services.ProductService
 {
@@ -6,6 +7,7 @@ namespace SmartBuyApi.Data.Services.ProductService
 	{
 		List<ProductShowDTO> GetPromotedProducts();
 		Task<List<ProductShowDTO>> GetLastSeenProducts(string[] productIds);
-
+		Task<ProductDetailDTO> GetProductByIdAsync(string id);
+		ProductEntity LikeProduct(string userId, string productId);
 	}
 }
