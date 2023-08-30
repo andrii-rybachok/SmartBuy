@@ -5,9 +5,11 @@ using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO;
 using SmartBuyApi.Data.Models.DTO.Image;
 using SmartBuyApi.Data.Models.DTO.Product;
+using SmartBuyApi.Data.Services.ShopService;
 using SmartBuyApi.Data.Services.UserService;
 using SmartBuyApi.DataBase;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace SmartBuyApi.Data.Services.ProductService
 {
@@ -15,12 +17,12 @@ namespace SmartBuyApi.Data.Services.ProductService
 	{
 		private readonly ApplicationDbContext _context;
 		private readonly IMapper _mapper;
-		private readonly IUserService _userService;
-		public ProductService(ApplicationDbContext context, IMapper mapper, IUserService userService)
+		private readonly IFilterService _filterService;
+		public ProductService(ApplicationDbContext context, IMapper mapper, IFilterService filterService)
 		{
 			_context = context;
 			_mapper = mapper;
-			_userService = userService;
+			_filterService = filterService;
 		}
 
 		public async Task<List<ProductShowDTO>> GetLastSeenProducts(string[] productIds)
@@ -36,8 +38,8 @@ namespace SmartBuyApi.Data.Services.ProductService
 			}
 			return products;
 		}
-
-		public List<ProductShowDTO> GetPromotedProducts()
+        
+        public List<ProductShowDTO> GetPromotedProducts()
 		{
 			var products= _context.Products.Include(x=>x.Reviews).Include(x=>x.Images).Where(x=>x.Dicount>1).Take(10).ToList();
 			if (products.Count > 0)
@@ -71,7 +73,7 @@ namespace SmartBuyApi.Data.Services.ProductService
 			}
 			return product;
 		}
-
+		
 		ProductDetailDTO mapProduct(ProductEntity product)
 		{
 			ProductDetailDTO _product = new ProductDetailDTO();

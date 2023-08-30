@@ -43,12 +43,13 @@ namespace SmartBuyApi.Data.Mappers
 
 			CreateMap<FilterName, FilterNameGetDTO>();
 			CreateMap<FilterName, FilterNameShowDTO>();
-
+            CreateMap<FilterNameShowDTO, FilterNameGetDTO>();
             CreateMap<CategoryEntity, CategoryShowDTO>()
                 .ForMember(x=>x.Filters,act=>act.MapFrom(x=>x.FilterNames));
 			CreateMap<GlobalCategoryEntity, GlobalCategoryShowDTO>()
-                .ForMember(x=>x.Image,opt=>opt.MapFrom(s=>s.Image.Name));
-
+                .ForMember(x=>x.Image,opt=>opt.MapFrom(s=>s.Image.Name))
+                .ForMember(x=>x.Categories,opt=>opt.MapFrom(s=>s.Categories));
+            
 			CreateMap<CategoryEntity, CategoryGetDTO>()
 				.ForMember(x => x.Filters, act => act.MapFrom(x => x.FilterNames));
 
