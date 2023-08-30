@@ -9,5 +9,6 @@ namespace SmartBuyApi.Data.Services.ProductService
 		Task<List<ProductShowDTO>> GetLastSeenProducts(string[] productIds);
 		Task<ProductDetailDTO> GetProductByIdAsync(string id);
 		ProductEntity LikeProduct(string userId, string productId);
-	}
+		
+    }
 }

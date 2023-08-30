@@ -7,6 +7,7 @@ namespace SmartBuyApi.Data.Models.DTO.GlobalCategory
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string Image { get; set; }
-		public List<CategoryItemDTO> categories { get; set; }
+		public List<CategoryItemDTO> Categories { get; set; }
+
 	}
 }
