@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartBuyApi.DataBase;
 
@@ -11,9 +12,11 @@ using SmartBuyApi.DataBase;
 namespace SmartBuyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230830040740_Cart")]
+    partial class Cart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -185,29 +188,29 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "otQJ_WYxPvD",
-                            CategoryId = "hStiV9RgXB-",
+                            Id = "eeoduCDrXtC",
+                            CategoryId = "_IUhE4aXYE7",
                             Name = "GraphicCard",
                             PublicName = "Дискретна відеокарта"
                         },
                         new
                         {
-                            Id = "o7pz7ATRErp",
-                            CategoryId = "hStiV9RgXB-",
+                            Id = "At5FBTcuf6k",
+                            CategoryId = "_IUhE4aXYE7",
                             Name = "Processor",
                             PublicName = "Процесор"
                         },
                         new
                         {
-                            Id = "EMvKCf7TKpn",
-                            CategoryId = "U0IblcRLrtH",
+                            Id = "1pc6gc4RExZ",
+                            CategoryId = "DkjxWIHmxKi",
                             Name = "BatteryCapacity",
                             PublicName = "Ємність акумулятора"
                         },
                         new
                         {
-                            Id = "sxBGSjt3i02",
-                            CategoryId = "U0IblcRLrtH",
+                            Id = "WpxGSoDbRWj",
+                            CategoryId = "DkjxWIHmxKi",
                             Name = "DisplayDiagonal",
                             PublicName = "Діагональ екрана"
                         });
@@ -244,8 +247,8 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5lbF7K3TNev",
-                            FilterNameId = "otQJ_WYxPvD",
+                            Id = "4W8yDuyi_iC",
+                            FilterNameId = "eeoduCDrXtC",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "GeForce RTX 3070",
@@ -253,8 +256,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "7CtdFW-sRVx",
-                            FilterNameId = "otQJ_WYxPvD",
+                            Id = "MuUtoyyyo7i",
+                            FilterNameId = "eeoduCDrXtC",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "GeForce RTX 3060",
@@ -262,8 +265,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "3zoRNRPJxdm",
-                            FilterNameId = "o7pz7ATRErp",
+                            Id = "ISvFivYxEGb",
+                            FilterNameId = "At5FBTcuf6k",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "AMD Ryzen 7",
@@ -271,8 +274,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "5Jx6pPyrZVT",
-                            FilterNameId = "o7pz7ATRErp",
+                            Id = "ODvbBYQVIcR",
+                            FilterNameId = "At5FBTcuf6k",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "Intel Core i7",
@@ -280,40 +283,40 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "b6BCdMHbVhL",
-                            FilterNameId = "EMvKCf7TKpn",
+                            Id = "RhjV8aJjdOA",
+                            FilterNameId = "1pc6gc4RExZ",
                             MaxValue = 3999.0,
                             MinValue = 3000.0,
                             PublicValue = "3000 - 3999 мА*год "
                         },
                         new
                         {
-                            Id = "a2hui9-eO7S",
-                            FilterNameId = "EMvKCf7TKpn",
+                            Id = "djrtpYXiSgM",
+                            FilterNameId = "1pc6gc4RExZ",
                             MaxValue = 4999.0,
                             MinValue = 4000.0,
                             PublicValue = "4000 - 4999 мА*год "
                         },
                         new
                         {
-                            Id = "R1E0TbXRfYA",
-                            FilterNameId = "sxBGSjt3i02",
+                            Id = "f0jf6DqaxSl",
+                            FilterNameId = "WpxGSoDbRWj",
                             MaxValue = 5.0,
                             MinValue = 4.5999999999999996,
                             PublicValue = "4.6\" - 5\""
                         },
                         new
                         {
-                            Id = "tVu_Qx8397d",
-                            FilterNameId = "sxBGSjt3i02",
+                            Id = "ahiVEYXn-Ig",
+                            FilterNameId = "WpxGSoDbRWj",
                             MaxValue = 5.5,
                             MinValue = 5.0099999999999998,
                             PublicValue = "5.01\" - 5.5\""
                         },
                         new
                         {
-                            Id = "_5Nhy7Dm-AR",
-                            FilterNameId = "sxBGSjt3i02",
+                            Id = "XnUsz0DjYiP",
+                            FilterNameId = "WpxGSoDbRWj",
                             MaxValue = 6.0,
                             MinValue = 5.5,
                             PublicValue = "5.5\" - 6\""
@@ -397,8 +400,8 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(3962),
+                            Id = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3220),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -407,8 +410,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4023),
+                            Id = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3292),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -417,8 +420,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "B8Z-CI6Guhy",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4029),
+                            Id = "66lQGoad65G",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3298),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -427,8 +430,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "EuYbPpvWi2T",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4033),
+                            Id = "JHMotdJNPMD",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3302),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -437,8 +440,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "B4MxOrx3inZ",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4037),
+                            Id = "iw77oeYUjhH",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3307),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -447,8 +450,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "F66lZgzPcE2",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4043),
+                            Id = "IYKBQnEbZS1",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3314),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
                             Image = "1.jpg",
@@ -457,8 +460,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "TBAqOJ-8oz_",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4048),
+                            Id = "4NEOOkvWhAp",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3319),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description test",
                             Image = "1.jpg",
@@ -520,9 +523,9 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "VH9GLj-1NG_",
-                            CategoryId = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4135),
+                            Id = "_ku_v5SDYRM",
+                            CategoryId = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3422),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "test",
                             IsDelete = false,
@@ -532,9 +535,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "ufNg4vuvV91",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4143),
+                            Id = "hG8fjgKnvtb",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3429),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ми представляємо вам найпотужнішу, саму оснащену, ударотривкий та найефективнішу версію смартфона 2021 року від румунської компанії iHunt .",
                             IsDelete = false,
@@ -544,9 +547,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "WHq0CtUXYQ2",
-                            CategoryId = "B8Z-CI6Guhy",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4148),
+                            Id = "8R0WpK54zF7",
+                            CategoryId = "66lQGoad65G",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3434),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Холодильники з системою NeoFrost ",
                             IsDelete = false,
@@ -556,9 +559,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "kb-a5kORI_N",
-                            CategoryId = "EuYbPpvWi2T",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4154),
+                            Id = "eYWoWVmXXTi",
+                            CategoryId = "JHMotdJNPMD",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3439),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ланцюгова пила Bosch UniversalChain ",
                             IsDelete = false,
@@ -568,9 +571,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "DeWSEKq4t4o",
-                            CategoryId = "B4MxOrx3inZ",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4159),
+                            Id = "iTkm1EMrM_E",
+                            CategoryId = "iw77oeYUjhH",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3448),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Велосипед Champion Spark 29 ",
                             IsDelete = false,
@@ -580,9 +583,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "BVYc8CBbc7K",
-                            CategoryId = "F66lZgzPcE2",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Utc).AddTicks(4163),
+                            Id = "fllBA00AOvj",
+                            CategoryId = "IYKBQnEbZS1",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Utc).AddTicks(3454),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "ВНабір паперу офісного Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла ",
                             IsDelete = false,
@@ -748,9 +751,9 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "K71GaoRcAyL",
-                            CategoryId = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4450),
+                            Id = "FsKua-kjvon",
+                            CategoryId = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3843),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -762,9 +765,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "Aaww7rMuXVF",
-                            CategoryId = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4454),
+                            Id = "4O-AAWxXqvk",
+                            CategoryId = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3849),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -776,9 +779,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "5damgi7hSfo",
-                            CategoryId = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4457),
+                            Id = "d3vYYWNDR1x",
+                            CategoryId = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3852),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -790,9 +793,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "-yPlxbdVrzl",
-                            CategoryId = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4460),
+                            Id = "dOboUZ_nHtE",
+                            CategoryId = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3855),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -804,9 +807,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "0HtV6W5IN3N",
-                            CategoryId = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4463),
+                            Id = "WrwxbL4GqF3",
+                            CategoryId = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3858),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -818,9 +821,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "5V9EIr9e9N6",
-                            CategoryId = "hStiV9RgXB-",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4465),
+                            Id = "00v3Xx2Z-AL",
+                            CategoryId = "_IUhE4aXYE7",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3861),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -849,9 +852,9 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "nXlblVUYU9M",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4506),
+                            Id = "rcZkNfhApAE",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3915),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -863,9 +866,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "23hx5zgS1ef",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4508),
+                            Id = "XTi-sGs6uca",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3919),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -877,9 +880,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "TADMdOwCegW",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4510),
+                            Id = "RrajEYIlXTw",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3921),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -891,9 +894,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "K51NDu9SoIj",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4513),
+                            Id = "yTkQXd_tAeM",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3925),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -905,9 +908,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "PgSRpgsa5gk",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4515),
+                            Id = "4TuQqz4BeUn",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3928),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -919,9 +922,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "g-EyMhvAOjY",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4518),
+                            Id = "vMP6yQvHMTY",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3930),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -933,9 +936,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "YxPgv8LGUYO",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4521),
+                            Id = "7LiyrsIOP45",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3933),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
@@ -947,9 +950,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "J23nfGbAWV0",
-                            CategoryId = "U0IblcRLrtH",
-                            DateCreated = new DateTime(2023, 8, 30, 7, 11, 37, 643, DateTimeKind.Local).AddTicks(4523),
+                            Id = "0Bewg4AB4no",
+                            CategoryId = "DkjxWIHmxKi",
+                            DateCreated = new DateTime(2023, 8, 30, 7, 7, 40, 339, DateTimeKind.Local).AddTicks(3935),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             IsDelete = false,
