@@ -180,7 +180,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("tbl_FilterNames");
+                    b.ToTable("tbl_FilterNames", (string)null);
 
                     b.HasData(
                         new
@@ -239,7 +239,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("FilterNameId");
 
-                    b.ToTable("tbl_FilterValues");
+                    b.ToTable("tbl_FilterValues", (string)null);
 
                     b.HasData(
                         new
@@ -358,7 +358,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("SmartUserId");
 
-                    b.ToTable("tbl_Tokens");
+                    b.ToTable("tbl_Tokens", (string)null);
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
@@ -392,7 +392,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_Categories");
+                    b.ToTable("tbl_Categories", (string)null);
 
                     b.HasData(
                         new
@@ -511,7 +511,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("tbl_Products");
+                    b.ToTable("tbl_Products", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("ProductEntity");
 
@@ -619,7 +619,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("tbl_ProductImages");
+                    b.ToTable("tbl_ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("SmartBuyApi.DataBase.Tables.Adress", b =>
@@ -741,7 +741,7 @@ namespace SmartBuyApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("tbl_Products");
+                    b.ToTable("tbl_Products", (string)null);
 
                     b.HasDiscriminator().HasValue("Laptop");
 
@@ -842,7 +842,7 @@ namespace SmartBuyApi.Migrations
                     b.Property<double>("DisplayDiagonal")
                         .HasColumnType("float");
 
-                    b.ToTable("tbl_Products");
+                    b.ToTable("tbl_Products", (string)null);
 
                     b.HasDiscriminator().HasValue("Telephone");
 
