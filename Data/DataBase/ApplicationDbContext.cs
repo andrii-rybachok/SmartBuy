@@ -28,9 +28,10 @@ namespace SmartBuyApi.DataBase
 		public DbSet<ImageEntity> Images { get; set; }
 		public DbSet<Telephone> Telephones { get; set; }
 		public DbSet<Laptop> Laptops { get; set; }
+		public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
 
-
-		public DbSet<FilterName> FilterNames { get; set; }
+        public DbSet<FilterName> FilterNames { get; set; }
 		public DbSet<FilterValue> FilterValues { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -101,6 +102,15 @@ namespace SmartBuyApi.DataBase
 				.HasMany(x => x.Products)
 				.WithOne(x => x.Category)
 				.HasForeignKey(x => x.CategoryId);
-		}
+			modelBuilder.Entity<Cart>()
+				.ToTable("tbl_cart");
+            modelBuilder.Entity<CartItem>()
+                .ToTable("tbl_cartItem");
+			modelBuilder.Entity<Cart>()
+				.HasMany(x => x.Items)
+                .WithOne(x => x.Cart)
+				.HasForeignKey(x => x.CartId);
+
+        }
 	}
 }
