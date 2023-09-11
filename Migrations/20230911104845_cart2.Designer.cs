@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartBuyApi.DataBase;
 
@@ -11,9 +12,11 @@ using SmartBuyApi.DataBase;
 namespace SmartBuyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230911104845_cart2")]
+    partial class cart2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,7 +186,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("tbl_FilterNames", (string)null);
+                    b.ToTable("tbl_FilterNames");
 
                     b.HasData(
                         new
@@ -252,7 +255,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("FilterNameId");
 
-                    b.ToTable("tbl_FilterValues", (string)null);
+                    b.ToTable("tbl_FilterValues");
 
                     b.HasData(
                         new
@@ -402,7 +405,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_GlobalCategories", (string)null);
+                    b.ToTable("tbl_GlobalCategories");
 
                     b.HasData(
                         new
@@ -485,7 +488,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Images", (string)null);
+                    b.ToTable("Images");
 
                     b.HasData(
                         new
@@ -1012,7 +1015,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("SmartUserId");
 
-                    b.ToTable("tbl_Tokens", (string)null);
+                    b.ToTable("tbl_Tokens");
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Entities.ReviewEntity", b =>
@@ -1052,7 +1055,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("tbl_Reviews", (string)null);
+                    b.ToTable("tbl_Reviews");
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
@@ -1087,7 +1090,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("GlobalCategoryId");
 
-                    b.ToTable("tbl_Categories", (string)null);
+                    b.ToTable("tbl_Categories");
 
                     b.HasData(
                         new
@@ -1204,7 +1207,7 @@ namespace SmartBuyApi.Migrations
 
                     b.HasIndex("UserLikeId");
 
-                    b.ToTable("tbl_Products", (string)null);
+                    b.ToTable("tbl_Products");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("ProductEntity");
 
@@ -1413,7 +1416,7 @@ namespace SmartBuyApi.Migrations
                     b.Property<double>("RAM")
                         .HasColumnType("float");
 
-                    b.ToTable("tbl_Products", (string)null);
+                    b.ToTable("tbl_Products");
 
                     b.HasDiscriminator().HasValue("Laptop");
 
@@ -1590,7 +1593,7 @@ namespace SmartBuyApi.Migrations
                     b.Property<double>("DisplayDiagonal")
                         .HasColumnType("float");
 
-                    b.ToTable("tbl_Products", (string)null);
+                    b.ToTable("tbl_Products");
 
                     b.HasDiscriminator().HasValue("Telephone");
 

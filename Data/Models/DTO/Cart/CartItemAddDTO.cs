@@ -2,8 +2,8 @@
 {
     public class CartItemAddDTO
     {
-        public string CartId { get; set; }
-        public string ProductId { get; set; }
+        public required string CartId { get; set; }
+        public required string ProductId { get; set; }
         public int Quantity { get; set; }
     }
 }
