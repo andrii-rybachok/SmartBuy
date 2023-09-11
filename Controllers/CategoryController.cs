@@ -12,6 +12,8 @@ using SmartBuyAPI.Helpers;
 using SmartBuyApi.Data.DataBase.Tables;
 using SmartBuyApi.Data.Models.DTO.Category;
 using SmartBuyApi.DataBase;
+using SmartBuyApi.Data.DataBase.Entities;
+using SmartBuyApi.Data.Factories;
 
 namespace SmartBuyAPI.Controllers
 {
@@ -52,9 +54,10 @@ namespace SmartBuyAPI.Controllers
         {
             var category = _mapper.Map<CategoryEntity>(model); // CategoryEntity update CategoryCreateDTO
 
-            //category.IsDelete = false;
-            category.DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
-            category.Image = ImageHelper.SaveAndGetImageName(model.Image, _iconfiguration);
+            var factory = new IdFactory(characterCount: 11);
+			//category.IsDelete = false;
+			category.DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+            category.Image = new ImageEntity() { Id=factory.Generate(),Name = ImageHelper.SaveAndGetImageName(model.Image, _iconfiguration) };
 
             await _context.AddAsync(category);
             await _context.SaveChangesAsync();
@@ -68,14 +71,14 @@ namespace SmartBuyAPI.Controllers
             if (category == null)
                 return NotFound();
 
-            ImageHelper.DeleteImage(category.Image);
+            ImageHelper.DeleteImage(category.Image.Name);
 
             category.Name = model.Name;
             //category.DisplayOrder = model.DisplayOrder;
             category.DateLastEdit = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
 
             string imageNewName = ImageHelper.SaveAndGetImageName(model.ImageUpload, _iconfiguration);
-            category.Image = string.IsNullOrEmpty(imageNewName) ? category.Image : imageNewName;
+            category.Image.Name = string.IsNullOrEmpty(imageNewName) ? category.Image.Name : imageNewName;
 
             //category.Priority = model.Priority;
             category.Description = model.Description;
@@ -91,7 +94,7 @@ namespace SmartBuyAPI.Controllers
             if (category == null)
                 return NotFound();
 
-            ImageHelper.DeleteImage(category.Image);
+            ImageHelper.DeleteImage(category.Image.Name);
             
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();

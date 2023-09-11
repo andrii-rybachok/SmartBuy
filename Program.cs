@@ -9,6 +9,8 @@ using System.Text.Json.Serialization;
 using Microsoft.Extensions.FileProviders;
 using SmartBuyApi.Data.Mappers;
 using SmartBuyApi.Data.Services.ShopService;
+using SmartBuyApi.Data.Services.ProductService;
+using SmartBuyApi.Data.Services.CategoryService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,7 +55,11 @@ var connectionString = builder.Configuration.GetConnectionString("ShopApi") ?? t
 	services.AddEndpointsApiExplorer();
 	services.AddScoped<IJwtUtils, JwtUtils>();
 	services.AddScoped<IUserService, UserService>();
-	services.AddScoped<IShopService, ShopService>();
+	services.AddScoped<IFilterService, FilterService>();
+    services.AddScoped<IProductService, ProductService>();
+    services.AddScoped<ICategoryService, CategoryService>();
+
+
 
 	services.AddHttpContextAccessor();
 
@@ -105,7 +111,7 @@ if (!Directory.Exists(dir))
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(dir),
-    RequestPath = "/Images"
+    RequestPath = "/images"
 });
 
 

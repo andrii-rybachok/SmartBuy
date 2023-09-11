@@ -21,7 +21,7 @@
 		}
 		public bool IsNumeric()
 		{
-			if (MaxValue != null && MinValue != null && MaxValue - MinValue > 0)
+			if (MaxValue != null && MinValue != null && MaxValue!=0&& MaxValue - MinValue >= 0)
 			{
 				return true;
 			}
