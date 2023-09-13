@@ -111,6 +111,8 @@ namespace SmartBuyApi.DataBase
                 .WithOne(x => x.Cart)
 				.HasForeignKey(x => x.CartId);
 
+			
+
         }
 	}
 }

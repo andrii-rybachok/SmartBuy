@@ -23,5 +23,6 @@ namespace SmartBuyApi.DataBase.Tables
 
 		public List<ProductEntity> LikedProducts { get; set; }
 		public List<RefreshToken> RefreshTokens { get; set; }
+		
 	}
 }

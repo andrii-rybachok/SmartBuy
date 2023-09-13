@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using SmartBuyApi.DataBase.Tables;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SmartBuyApi.Data.DataBase.Tables
 
