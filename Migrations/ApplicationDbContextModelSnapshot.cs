@@ -17,7 +17,7 @@ namespace SmartBuyApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.7")
+                .HasAnnotation("ProductVersion", "7.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -188,38 +188,38 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "l1RcsEbWIdu",
-                            CategoryId = "2OFgF_KzTmU",
+                            Id = "3iG_LM_h0nx",
+                            CategoryId = "rlCbxfOimxf",
                             Name = "GraphicCard",
                             PublicName = "Дискретна відеокарта"
                         },
                         new
                         {
-                            Id = "Wv8q0KhyiOY",
-                            CategoryId = "2OFgF_KzTmU",
+                            Id = "a9KOQioORVn",
+                            CategoryId = "rlCbxfOimxf",
                             Name = "Processor",
                             PublicName = "Процесор"
                         },
                         new
                         {
-                            Id = "uKF3ccf3R_-",
-                            CategoryId = "2OFgF_KzTmU",
+                            Id = "DLVkSB4M3_B",
+                            CategoryId = "rlCbxfOimxf",
                             Metric = "ГБ",
                             Name = "RAM",
                             PublicName = "Обсяг оперативної пам'яті"
                         },
                         new
                         {
-                            Id = "GT8i0RoprRO",
-                            CategoryId = "Vx2sgsEBKpu",
+                            Id = "eJrCKtjDVr3",
+                            CategoryId = "EnDKUD--DDw",
                             Metric = "мА·год",
                             Name = "BatteryCapacity",
                             PublicName = "Ємність акумулятора"
                         },
                         new
                         {
-                            Id = "OF4SY8MiOPB",
-                            CategoryId = "Vx2sgsEBKpu",
+                            Id = "YJZiYQEbE5n",
+                            CategoryId = "EnDKUD--DDw",
                             Metric = "\"",
                             Name = "DisplayDiagonal",
                             PublicName = "Діагональ екрана"
@@ -257,8 +257,8 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4ANuQ2wlg_h",
-                            FilterNameId = "l1RcsEbWIdu",
+                            Id = "qv_h0VleFuo",
+                            FilterNameId = "3iG_LM_h0nx",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "GeForce RTX 3070",
@@ -266,8 +266,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "UL8BIir5D1t",
-                            FilterNameId = "l1RcsEbWIdu",
+                            Id = "GOiB70U5J90",
+                            FilterNameId = "3iG_LM_h0nx",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "GeForce RTX 3060",
@@ -275,8 +275,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "UiTHLdnie42",
-                            FilterNameId = "l1RcsEbWIdu",
+                            Id = "7qZnE8Mg-oZ",
+                            FilterNameId = "3iG_LM_h0nx",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "GeForce RTX 3050",
@@ -284,8 +284,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "q0sZRqzxlED",
-                            FilterNameId = "Wv8q0KhyiOY",
+                            Id = "oqaxcgB4QSL",
+                            FilterNameId = "a9KOQioORVn",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "AMD Ryzen 7",
@@ -293,8 +293,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "XVpuNTXAC1p",
-                            FilterNameId = "Wv8q0KhyiOY",
+                            Id = "LklOA26BTyD",
+                            FilterNameId = "a9KOQioORVn",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "Intel Core i7",
@@ -302,8 +302,8 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "B3poN5TUWRE",
-                            FilterNameId = "Wv8q0KhyiOY",
+                            Id = "evQeHNhRKfc",
+                            FilterNameId = "a9KOQioORVn",
                             MaxValue = 0.0,
                             MinValue = 0.0,
                             PublicValue = "Intel Core i5",
@@ -311,80 +311,80 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "dMgbE7WPW_n",
-                            FilterNameId = "uKF3ccf3R_-",
+                            Id = "de20fQwSREw",
+                            FilterNameId = "DLVkSB4M3_B",
                             MaxValue = 3.0,
                             MinValue = 0.20000000000000001,
                             PublicValue = "3 ГБ і менше"
                         },
                         new
                         {
-                            Id = "nCIn_QJJvvZ",
-                            FilterNameId = "uKF3ccf3R_-",
+                            Id = "VNa9GHjEY5S",
+                            FilterNameId = "DLVkSB4M3_B",
                             MaxValue = 4.0,
                             MinValue = 4.0,
                             PublicValue = "4 ГБ"
                         },
                         new
                         {
-                            Id = "2TV76joo51L",
-                            FilterNameId = "uKF3ccf3R_-",
+                            Id = "K2lqPIgmadm",
+                            FilterNameId = "DLVkSB4M3_B",
                             MaxValue = 8.0,
                             MinValue = 6.0,
                             PublicValue = "6 - 8 ГБ"
                         },
                         new
                         {
-                            Id = "kfL45jrf4ib",
-                            FilterNameId = "uKF3ccf3R_-",
+                            Id = "bueQnEQCdbF",
+                            FilterNameId = "DLVkSB4M3_B",
                             MaxValue = 12.0,
                             MinValue = 10.0,
                             PublicValue = "10 - 12 ГБ"
                         },
                         new
                         {
-                            Id = "tUr9ESt3FXN",
-                            FilterNameId = "uKF3ccf3R_-",
+                            Id = "pNtmsLMHjLk",
+                            FilterNameId = "DLVkSB4M3_B",
                             MaxValue = 24.0,
                             MinValue = 16.0,
                             PublicValue = "16 - 24 ГБ"
                         },
                         new
                         {
-                            Id = "mbA1iPt20kD",
-                            FilterNameId = "GT8i0RoprRO",
+                            Id = "2T9AByl9OsY",
+                            FilterNameId = "eJrCKtjDVr3",
                             MaxValue = 3999.0,
                             MinValue = 3000.0,
                             PublicValue = "3000 - 3999 мА*год "
                         },
                         new
                         {
-                            Id = "2AGMhKahQdG",
-                            FilterNameId = "GT8i0RoprRO",
+                            Id = "j2mFohAX3qY",
+                            FilterNameId = "eJrCKtjDVr3",
                             MaxValue = 4999.0,
                             MinValue = 4000.0,
                             PublicValue = "4000 - 4999 мА*год "
                         },
                         new
                         {
-                            Id = "sSY9IAYjAxf",
-                            FilterNameId = "OF4SY8MiOPB",
+                            Id = "Qasj8xrPgm5",
+                            FilterNameId = "YJZiYQEbE5n",
                             MaxValue = 5.0,
                             MinValue = 4.5999999999999996,
                             PublicValue = "4.6\" - 5\""
                         },
                         new
                         {
-                            Id = "WKlLzUC9lHh",
-                            FilterNameId = "OF4SY8MiOPB",
+                            Id = "iE1lE6S1lSK",
+                            FilterNameId = "YJZiYQEbE5n",
                             MaxValue = 5.5,
                             MinValue = 5.0099999999999998,
                             PublicValue = "5.01\" - 5.5\""
                         },
                         new
                         {
-                            Id = "qvhS9ytlIHs",
-                            FilterNameId = "OF4SY8MiOPB",
+                            Id = "wCXObDLahXB",
+                            FilterNameId = "YJZiYQEbE5n",
                             MaxValue = 6.0,
                             MinValue = 5.5,
                             PublicValue = "5.5\" - 6\""
@@ -407,47 +407,47 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "HbpNMb3LlxB",
+                            Id = "1JegB5Au-fY",
                             Name = "Смартфони та планшети"
                         },
                         new
                         {
-                            Id = "FFqPozYMIxQ",
+                            Id = "ldXL58W6Omk",
                             Name = "Комп’ютери та ноутбуки"
                         },
                         new
                         {
-                            Id = "DrQ_Gke2c_k",
+                            Id = "KAN4V6vX-Sz",
                             Name = "Фото та відео"
                         },
                         new
                         {
-                            Id = "QPYXpFRFAe5",
+                            Id = "aMjKdO9YBRK",
                             Name = "Аудіо"
                         },
                         new
                         {
-                            Id = "lD_jTHEZs0V",
+                            Id = "qStHAyFX8wZ",
                             Name = "Мультимедіа"
                         },
                         new
                         {
-                            Id = "-fgpBOcDQ0L",
+                            Id = "o1u-GOvZKyR",
                             Name = "Ігрова техніка"
                         },
                         new
                         {
-                            Id = "s-KOpDaVWHA",
+                            Id = "sr5c_rppUYW",
                             Name = "Побутова техніка"
                         },
                         new
                         {
-                            Id = "eQf-av2wtwd",
+                            Id = "6dXRub-fheD",
                             Name = "Електронні гаджети"
                         },
                         new
                         {
-                            Id = "WHBhwCHV26h",
+                            Id = "bHHSXzKC1tu",
                             Name = "Електро-інструменти"
                         });
                 });
@@ -490,485 +490,485 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "peCHtkeOYpE",
+                            Id = "DgTMtNMCp3q",
                             Name = "1_1.webp",
                             Priority = 1,
-                            ProductId = "1L7FwJ-XrvI"
+                            ProductId = "Sz5C1kWnIgU"
                         },
                         new
                         {
-                            Id = "yyxwQDSRLXF",
+                            Id = "M3hNs4yZOHr",
                             Name = "1_2.webp",
                             Priority = 2,
-                            ProductId = "1L7FwJ-XrvI"
+                            ProductId = "Sz5C1kWnIgU"
                         },
                         new
                         {
-                            Id = "XcwL76T1niN",
+                            Id = "FsoxT9dA7JC",
                             Name = "1_3.webp",
                             Priority = 3,
-                            ProductId = "1L7FwJ-XrvI"
+                            ProductId = "Sz5C1kWnIgU"
                         },
                         new
                         {
-                            Id = "VQG60bG4EHQ",
+                            Id = "BI4mHMIvpte",
                             Name = "2_1.webp",
                             Priority = 1,
-                            ProductId = "0iX61DqFhHb"
+                            ProductId = "51gkOL36kI-"
                         },
                         new
                         {
-                            Id = "qwo3rp3a29T",
+                            Id = "75kVmm32xk9",
                             Name = "2_2.webp",
                             Priority = 2,
-                            ProductId = "0iX61DqFhHb"
+                            ProductId = "51gkOL36kI-"
                         },
                         new
                         {
-                            Id = "yKYk5ohqeiH",
+                            Id = "ssWEKPfne8g",
                             Name = "2_3.webp",
                             Priority = 3,
-                            ProductId = "0iX61DqFhHb"
+                            ProductId = "51gkOL36kI-"
                         },
                         new
                         {
-                            Id = "B8Pp3JJeLf9",
+                            Id = "s5fZWLoKO7S",
                             Name = "3_1.webp",
                             Priority = 1,
-                            ProductId = "q5Acllh3zdi"
+                            ProductId = "1QFg0DuM4tp"
                         },
                         new
                         {
-                            Id = "cSkVHP5lmEE",
+                            Id = "M6rTRpj_CzJ",
                             Name = "3_2.webp",
                             Priority = 2,
-                            ProductId = "q5Acllh3zdi"
+                            ProductId = "1QFg0DuM4tp"
                         },
                         new
                         {
-                            Id = "w4A_sXUiv5E",
+                            Id = "LuGvxcyGLmx",
                             Name = "3_3.webp",
                             Priority = 3,
-                            ProductId = "q5Acllh3zdi"
+                            ProductId = "1QFg0DuM4tp"
                         },
                         new
                         {
-                            Id = "ksu8fZS2zmL",
+                            Id = "Y7vCTn0-Lpc",
                             Name = "1_1.webp",
                             Priority = 1,
-                            ProductId = "hCmZIJwodLn"
+                            ProductId = "MqATwx9ixm1"
                         },
                         new
                         {
-                            Id = "FAdKNlLXGFm",
+                            Id = "kYnLCuU-ZPU",
                             Name = "1_2.webp",
                             Priority = 2,
-                            ProductId = "hCmZIJwodLn"
+                            ProductId = "MqATwx9ixm1"
                         },
                         new
                         {
-                            Id = "VcsnSUztFcS",
+                            Id = "_yr9OzBSAyI",
                             Name = "1_3.webp",
                             Priority = 3,
-                            ProductId = "hCmZIJwodLn"
+                            ProductId = "MqATwx9ixm1"
                         },
                         new
                         {
-                            Id = "_3YlEbyTvJL",
+                            Id = "pF8TjYwD3CA",
                             Name = "2_1.webp",
                             Priority = 1,
-                            ProductId = "NKuySrzghp3"
+                            ProductId = "NLGDd--V_h2"
                         },
                         new
                         {
-                            Id = "F6D5Nqj29Ko",
+                            Id = "OGBy8DAa5NN",
                             Name = "2_2.webp",
                             Priority = 2,
-                            ProductId = "NKuySrzghp3"
+                            ProductId = "NLGDd--V_h2"
                         },
                         new
                         {
-                            Id = "zGiTVw44cU9",
+                            Id = "_AFUrP1UXmq",
                             Name = "2_3.webp",
                             Priority = 3,
-                            ProductId = "NKuySrzghp3"
+                            ProductId = "NLGDd--V_h2"
                         },
                         new
                         {
-                            Id = "HEZ0M-9ZDNW",
+                            Id = "87EOAKuevdq",
                             Name = "3_1.webp",
                             Priority = 1,
-                            ProductId = "uZxb3IL5xr1"
+                            ProductId = "OcWrbSZLVhI"
                         },
                         new
                         {
-                            Id = "ZaSm5bEYKVc",
+                            Id = "L-s8mBhBjFm",
                             Name = "3_2.webp",
                             Priority = 2,
-                            ProductId = "uZxb3IL5xr1"
+                            ProductId = "OcWrbSZLVhI"
                         },
                         new
                         {
-                            Id = "cIhLMLRUTgc",
+                            Id = "bd6c_LLR6Ct",
                             Name = "3_3.webp",
                             Priority = 3,
-                            ProductId = "uZxb3IL5xr1"
+                            ProductId = "OcWrbSZLVhI"
                         },
                         new
                         {
-                            Id = "MGuw1HCmHjq",
+                            Id = "LJa0-80JtpH",
                             Name = "1_1.webp",
                             Priority = 1,
-                            ProductId = "PMSJkmZNtPj"
+                            ProductId = "bA3gr22xBnY"
                         },
                         new
                         {
-                            Id = "yd4gI2PtaT3",
+                            Id = "snXWoGJpz7m",
                             Name = "1_2.webp",
                             Priority = 2,
-                            ProductId = "PMSJkmZNtPj"
+                            ProductId = "bA3gr22xBnY"
                         },
                         new
                         {
-                            Id = "cV1WxDQR4WB",
+                            Id = "1W3C5zrakHd",
                             Name = "1_3.webp",
                             Priority = 3,
-                            ProductId = "PMSJkmZNtPj"
+                            ProductId = "bA3gr22xBnY"
                         },
                         new
                         {
-                            Id = "UuX5aHsxlnE",
+                            Id = "sRywdkwy6fq",
                             Name = "2_1.webp",
                             Priority = 1,
-                            ProductId = "FMuc4oCEWF-"
+                            ProductId = "3L6kQMzUed6"
                         },
                         new
                         {
-                            Id = "qCZH8o_C6wa",
+                            Id = "0yxPoSTQZ9C",
                             Name = "2_2.webp",
                             Priority = 2,
-                            ProductId = "FMuc4oCEWF-"
+                            ProductId = "3L6kQMzUed6"
                         },
                         new
                         {
-                            Id = "VOf5QApxaRZ",
+                            Id = "j898esSxJXa",
                             Name = "2_3.webp",
                             Priority = 3,
-                            ProductId = "FMuc4oCEWF-"
+                            ProductId = "3L6kQMzUed6"
                         },
                         new
                         {
-                            Id = "NBtmLiqw9jq",
+                            Id = "IZmoes1Bevn",
                             Name = "3_1.webp",
                             Priority = 1,
-                            ProductId = "yh43ItPdaIr"
+                            ProductId = "B4ef_hPoAZd"
                         },
                         new
                         {
-                            Id = "ey-FSfZhUZm",
+                            Id = "BF_VmWzEAyc",
                             Name = "3_2.webp",
                             Priority = 2,
-                            ProductId = "yh43ItPdaIr"
+                            ProductId = "B4ef_hPoAZd"
                         },
                         new
                         {
-                            Id = "pQmw6IdXUcn",
+                            Id = "dtWrC47MEI2",
                             Name = "3_3.webp",
                             Priority = 3,
-                            ProductId = "yh43ItPdaIr"
+                            ProductId = "B4ef_hPoAZd"
                         },
                         new
                         {
-                            Id = "ASojZYTtmwu",
+                            Id = "p2Xeszpl_fp",
                             Name = "1_1.webp",
                             Priority = 1,
-                            ProductId = "ynqS3CNCoG-"
+                            ProductId = "3UxuGnnHlIu"
                         },
                         new
                         {
-                            Id = "CkKjXL5LqTD",
+                            Id = "79zmA_K9eUT",
                             Name = "1_2.webp",
                             Priority = 2,
-                            ProductId = "ynqS3CNCoG-"
+                            ProductId = "3UxuGnnHlIu"
                         },
                         new
                         {
-                            Id = "otGA0Lc_fap",
+                            Id = "njG--lPUvDA",
                             Name = "1_3.webp",
                             Priority = 3,
-                            ProductId = "ynqS3CNCoG-"
+                            ProductId = "3UxuGnnHlIu"
                         },
                         new
                         {
-                            Id = "D4GIma2jzGZ",
+                            Id = "X2AMYFO3fzc",
                             Name = "3_1.webp",
                             Priority = 1,
-                            ProductId = "6PP0XVtJ8r2"
+                            ProductId = "zc78GMhVxs5"
                         },
                         new
                         {
-                            Id = "_Rj2aBGcGfE",
+                            Id = "un-nVZQhqAP",
                             Name = "3_2.webp",
                             Priority = 2,
-                            ProductId = "6PP0XVtJ8r2"
+                            ProductId = "zc78GMhVxs5"
                         },
                         new
                         {
-                            Id = "vtji15g9JQa",
+                            Id = "f028cwAgs6R",
                             Name = "3_3.webp",
                             Priority = 3,
-                            ProductId = "6PP0XVtJ8r2"
+                            ProductId = "zc78GMhVxs5"
                         },
                         new
                         {
-                            Id = "qHAa8vdezN5",
+                            Id = "7KgSl5kCFkd",
                             Name = "4_1.webp",
                             Priority = 1,
-                            ProductId = "DbZT4KbYNkF"
+                            ProductId = "aKwqGBZLXNA"
                         },
                         new
                         {
-                            Id = "oqXdfQvUeM3",
+                            Id = "_cvFEF7540f",
                             Name = "4_2.webp",
                             Priority = 2,
-                            ProductId = "DbZT4KbYNkF"
+                            ProductId = "aKwqGBZLXNA"
                         },
                         new
                         {
-                            Id = "QQULvKTwgJI",
+                            Id = "TIE82aSlg85",
                             Name = "4_3.webp",
                             Priority = 3,
-                            ProductId = "DbZT4KbYNkF"
+                            ProductId = "aKwqGBZLXNA"
                         },
                         new
                         {
-                            Id = "AELsV8o3gcK",
+                            Id = "M9AruxrQ2XL",
                             Name = "5_1.webp",
                             Priority = 1,
-                            ProductId = "q7nhQhGIkaU"
+                            ProductId = "Iwl-MnDxAzC"
                         },
                         new
                         {
-                            Id = "NLmszrrX-0y",
+                            Id = "gjmH3GooWof",
                             Name = "5_2.webp",
                             Priority = 2,
-                            ProductId = "q7nhQhGIkaU"
+                            ProductId = "Iwl-MnDxAzC"
                         },
                         new
                         {
-                            Id = "HGxrUv_cjZe",
+                            Id = "fBq9vJ5HiXL",
                             Name = "5_3.webp",
                             Priority = 3,
-                            ProductId = "q7nhQhGIkaU"
+                            ProductId = "Iwl-MnDxAzC"
                         },
                         new
                         {
-                            Id = "iIfWRS8WTXP",
+                            Id = "5QcUGAawzI0",
                             Name = "6_1.webp",
                             Priority = 1,
-                            ProductId = "IhC_6QMeKpB"
+                            ProductId = "lT14V2S-Y5i"
                         },
                         new
                         {
-                            Id = "MZJIg0_oa56",
+                            Id = "44ZG4jV3ThV",
                             Name = "6_2.webp",
                             Priority = 2,
-                            ProductId = "IhC_6QMeKpB"
+                            ProductId = "lT14V2S-Y5i"
                         },
                         new
                         {
-                            Id = "Bsv3kTPLTZV",
+                            Id = "Sm_c8cRsFH1",
                             Name = "6_3.webp",
                             Priority = 3,
-                            ProductId = "IhC_6QMeKpB"
+                            ProductId = "lT14V2S-Y5i"
                         },
                         new
                         {
-                            Id = "aJXytULEJbf",
+                            Id = "bInjMsy9fxk",
                             Name = "3_1.webp",
                             Priority = 1,
-                            ProductId = "YQSs2j4R7Sm"
+                            ProductId = "hCK3ReredZ8"
                         },
                         new
                         {
-                            Id = "g0MklfNghfQ",
+                            Id = "BhebOQBGJ24",
                             Name = "3_2.webp",
                             Priority = 2,
-                            ProductId = "YQSs2j4R7Sm"
+                            ProductId = "hCK3ReredZ8"
                         },
                         new
                         {
-                            Id = "r4mYV69DY5N",
+                            Id = "R76ITeawW0b",
                             Name = "3_3.webp",
                             Priority = 3,
-                            ProductId = "YQSs2j4R7Sm"
+                            ProductId = "hCK3ReredZ8"
                         },
                         new
                         {
-                            Id = "76UjwT4kLy-",
+                            Id = "FvRO_GfyU_V",
                             Name = "4_1.webp",
                             Priority = 1,
-                            ProductId = "mDrE6YJwkle"
+                            ProductId = "D5gbCXTfyLT"
                         },
                         new
                         {
-                            Id = "X6epzyd1RiO",
+                            Id = "CqcwpxJtNvN",
                             Name = "4_2.webp",
                             Priority = 2,
-                            ProductId = "mDrE6YJwkle"
+                            ProductId = "D5gbCXTfyLT"
                         },
                         new
                         {
-                            Id = "fbb8O5g2guG",
+                            Id = "ZBN8dcKu9sv",
                             Name = "4_3.webp",
                             Priority = 3,
-                            ProductId = "mDrE6YJwkle"
+                            ProductId = "D5gbCXTfyLT"
                         },
                         new
                         {
-                            Id = "gAvCKSat-dc",
+                            Id = "rQN0U0hPn_a",
                             Name = "5_1.webp",
                             Priority = 1,
-                            ProductId = "SNlDrtKa6S-"
+                            ProductId = "L3u_oaaLAmQ"
                         },
                         new
                         {
-                            Id = "eZ90leCImN6",
+                            Id = "OzwBY7fDgZF",
                             Name = "5_2.webp",
                             Priority = 2,
-                            ProductId = "SNlDrtKa6S-"
+                            ProductId = "L3u_oaaLAmQ"
                         },
                         new
                         {
-                            Id = "pxJeKL-Mjnf",
+                            Id = "7ELLGaRxBpp",
                             Name = "5_3.webp",
                             Priority = 3,
-                            ProductId = "SNlDrtKa6S-"
+                            ProductId = "L3u_oaaLAmQ"
                         },
                         new
                         {
-                            Id = "e5pSBXZzGOQ",
+                            Id = "y9kt3awnngO",
                             Name = "6_1.webp",
                             Priority = 1,
-                            ProductId = "6ySNErAfzFH"
+                            ProductId = "TztEFnBXb-j"
                         },
                         new
                         {
-                            Id = "xWAw59Nfwcg",
+                            Id = "fLOYH02fEZD",
                             Name = "6_2.webp",
                             Priority = 2,
-                            ProductId = "6ySNErAfzFH"
+                            ProductId = "TztEFnBXb-j"
                         },
                         new
                         {
-                            Id = "GjhY0VSYUFG",
+                            Id = "4kBd9nfcZ8u",
                             Name = "6_3.webp",
                             Priority = 3,
-                            ProductId = "6ySNErAfzFH"
+                            ProductId = "TztEFnBXb-j"
                         },
                         new
                         {
-                            Id = "8jUF2vChY3s",
+                            Id = "sBlU5bPRRDf",
                             Name = "3_1.webp",
                             Priority = 1,
-                            ProductId = "XV2aet2fyF3"
+                            ProductId = "mhkfEpBBWpF"
                         },
                         new
                         {
-                            Id = "4WieeQXdcow",
+                            Id = "JlE3uH_p0VT",
                             Name = "3_2.webp",
                             Priority = 2,
-                            ProductId = "XV2aet2fyF3"
+                            ProductId = "mhkfEpBBWpF"
                         },
                         new
                         {
-                            Id = "kai36vz54LW",
+                            Id = "0ulejF6L1OD",
                             Name = "3_3.webp",
                             Priority = 3,
-                            ProductId = "XV2aet2fyF3"
+                            ProductId = "mhkfEpBBWpF"
                         },
                         new
                         {
-                            Id = "dCD0XdVAGmv",
+                            Id = "UH4WVpvXcy3",
                             Name = "4_1.webp",
                             Priority = 1,
-                            ProductId = "k7W1KND1YIH"
+                            ProductId = "zSHHW9CUEQA"
                         },
                         new
                         {
-                            Id = "kKK3jbwJ24I",
+                            Id = "nbQyfVdLnR5",
                             Name = "4_2.webp",
                             Priority = 2,
-                            ProductId = "k7W1KND1YIH"
+                            ProductId = "zSHHW9CUEQA"
                         },
                         new
                         {
-                            Id = "ajcWmM1qMqT",
+                            Id = "rlzbVcJ3y6r",
                             Name = "4_3.webp",
                             Priority = 3,
-                            ProductId = "k7W1KND1YIH"
+                            ProductId = "zSHHW9CUEQA"
                         },
                         new
                         {
-                            Id = "McSs3HAHKCP",
+                            Id = "IWhWP5RYhwy",
                             Name = "5_1.webp",
                             Priority = 1,
-                            ProductId = "uT8GuZIwvsa"
+                            ProductId = "cfsb0_yfU-s"
                         },
                         new
                         {
-                            Id = "-lEm5zusw_P",
+                            Id = "E3gnRP03RlO",
                             Name = "5_2.webp",
                             Priority = 2,
-                            ProductId = "uT8GuZIwvsa"
+                            ProductId = "cfsb0_yfU-s"
                         },
                         new
                         {
-                            Id = "yLCnjdC08qq",
+                            Id = "l-QFRXgCdHi",
                             Name = "5_3.webp",
                             Priority = 3,
-                            ProductId = "uT8GuZIwvsa"
+                            ProductId = "cfsb0_yfU-s"
                         },
                         new
                         {
-                            Id = "oGHrReJfzrN",
+                            Id = "tkExfuaZeHi",
                             Name = "6_1.webp",
                             Priority = 1,
-                            ProductId = "isB3Yw8qjmQ"
+                            ProductId = "cW8mEdX69oO"
                         },
                         new
                         {
-                            Id = "r3v9mr8BgpJ",
+                            Id = "EKVAASVqwQg",
                             Name = "6_2.webp",
                             Priority = 2,
-                            ProductId = "isB3Yw8qjmQ"
+                            ProductId = "cW8mEdX69oO"
                         },
                         new
                         {
-                            Id = "ghBg13P1OaY",
+                            Id = "QIqaFk9KyHu",
                             Name = "6_3.webp",
                             Priority = 3,
-                            ProductId = "isB3Yw8qjmQ"
+                            ProductId = "cW8mEdX69oO"
                         },
                         new
                         {
-                            Id = "SzeJqzRZ7YK",
-                            CategoryId = "2OFgF_KzTmU",
-                            GlobalCategoryId = "FFqPozYMIxQ",
+                            Id = "wgWA9d1jmyr",
+                            CategoryId = "rlCbxfOimxf",
+                            GlobalCategoryId = "ldXL58W6Omk",
                             Name = "laptops.webp",
                             Priority = 1
                         },
                         new
                         {
-                            Id = "rRThuBd_pdA",
-                            GlobalCategoryId = "HbpNMb3LlxB",
+                            Id = "1qLHSrWe_ot",
+                            GlobalCategoryId = "1JegB5Au-fY",
                             Name = "tablets.webp",
                             Priority = 1
                         },
                         new
                         {
-                            Id = "lf43BksrIHO",
-                            CategoryId = "Vx2sgsEBKpu",
+                            Id = "JuFaQapTYEj",
+                            CategoryId = "EnDKUD--DDw",
                             Name = "telephones.webp",
                             Priority = 1
                         });
@@ -1055,6 +1055,43 @@ namespace SmartBuyApi.Migrations
                     b.ToTable("tbl_Reviews");
                 });
 
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.Cart", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_cart", (string)null);
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CartItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CartId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.ToTable("tbl_cartItem", (string)null);
+                });
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
                 {
                     b.Property<string>("Id")
@@ -1092,61 +1129,61 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6379),
+                            Id = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(7970),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            GlobalCategoryId = "FFqPozYMIxQ",
+                            GlobalCategoryId = "ldXL58W6Omk",
                             IsDelete = false,
                             Name = "Ноутбуки, ультрабуки та мінібуки"
                         },
                         new
                         {
-                            Id = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6450),
+                            Id = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8075),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            GlobalCategoryId = "HbpNMb3LlxB",
+                            GlobalCategoryId = "1JegB5Au-fY",
                             IsDelete = false,
                             Name = "Смартфони"
                         },
                         new
                         {
-                            Id = "RaGHjd6XIBO",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6455),
+                            Id = "q9vxN1lqU-U",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8090),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            GlobalCategoryId = "HbpNMb3LlxB",
+                            GlobalCategoryId = "1JegB5Au-fY",
                             IsDelete = false,
                             Name = "Планшети"
                         },
                         new
                         {
-                            Id = "wWyO_aaf2sf",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6460),
+                            Id = "EZqnScP4oOP",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8103),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            GlobalCategoryId = "HbpNMb3LlxB",
+                            GlobalCategoryId = "1JegB5Au-fY",
                             IsDelete = false,
                             Name = "Аксесуари для смартфонів і планшетів"
                         },
                         new
                         {
-                            Id = "B9PUc9OIW84",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6463),
+                            Id = "RXYxs8ws8U1",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8115),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            GlobalCategoryId = "FFqPozYMIxQ",
+                            GlobalCategoryId = "ldXL58W6Omk",
                             IsDelete = false,
                             Name = "настільні ПК"
                         },
                         new
                         {
-                            Id = "nELJ-x_uNrI",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6469),
+                            Id = "Stc-d-qSMoI",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8134),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "description",
-                            GlobalCategoryId = "FFqPozYMIxQ",
+                            GlobalCategoryId = "ldXL58W6Omk",
                             IsDelete = false,
                             Name = "монітори"
                         });
@@ -1213,9 +1250,9 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9KhETYLjL7i",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6511),
+                            Id = "JehDiTTOqS9",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8296),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "test",
                             Dicount = 0,
@@ -1226,9 +1263,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "3JO8EugZH-O",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6518),
+                            Id = "AOg0gOR_nFF",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8349),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ми представляємо вам найпотужнішу, саму оснащену, ударотривкий та найефективнішу версію смартфона 2021 року від румунської компанії iHunt .",
                             Dicount = 0,
@@ -1239,9 +1276,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "fxPWzV077nw",
-                            CategoryId = "RaGHjd6XIBO",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6523),
+                            Id = "5k8VoF-dG7n",
+                            CategoryId = "q9vxN1lqU-U",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8365),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Холодильники з системою NeoFrost ",
                             Dicount = 0,
@@ -1252,9 +1289,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "w2YxF8fWEdg",
-                            CategoryId = "wWyO_aaf2sf",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6527),
+                            Id = "pUfpDAblV_R",
+                            CategoryId = "EZqnScP4oOP",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8380),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ланцюгова пила Bosch UniversalChain ",
                             Dicount = 0,
@@ -1265,9 +1302,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "dkMqS8rHQbe",
-                            CategoryId = "B9PUc9OIW84",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6531),
+                            Id = "DCjMzJ-fOUh",
+                            CategoryId = "RXYxs8ws8U1",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8396),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Велосипед Champion Spark 29 ",
                             Dicount = 0,
@@ -1278,9 +1315,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "RoUVr3sc2h5",
-                            CategoryId = "nELJ-x_uNrI",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Utc).AddTicks(6535),
+                            Id = "vkczFrGII6o",
+                            CategoryId = "Stc-d-qSMoI",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Utc).AddTicks(8408),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "ВНабір паперу офісного Zoom Stora Enso А4 80 г/м2 клас С + 5 пачок по 500 аркушів Біла ",
                             Dicount = 0,
@@ -1420,9 +1457,9 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1L7FwJ-XrvI",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6760),
+                            Id = "Sz5C1kWnIgU",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9564),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1436,9 +1473,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "0iX61DqFhHb",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6763),
+                            Id = "51gkOL36kI-",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9582),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1452,9 +1489,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "q5Acllh3zdi",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6765),
+                            Id = "1QFg0DuM4tp",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9590),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1468,9 +1505,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "hCmZIJwodLn",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6767),
+                            Id = "MqATwx9ixm1",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9597),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1484,9 +1521,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "NKuySrzghp3",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6769),
+                            Id = "NLGDd--V_h2",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9608),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1500,9 +1537,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "uZxb3IL5xr1",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6771),
+                            Id = "OcWrbSZLVhI",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9684),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1516,9 +1553,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "PMSJkmZNtPj",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6773),
+                            Id = "bA3gr22xBnY",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9693),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1532,9 +1569,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "FMuc4oCEWF-",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6775),
+                            Id = "3L6kQMzUed6",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9700),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1548,9 +1585,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "yh43ItPdaIr",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6777),
+                            Id = "B4ef_hPoAZd",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9709),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1564,9 +1601,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "ynqS3CNCoG-",
-                            CategoryId = "2OFgF_KzTmU",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6779),
+                            Id = "3UxuGnnHlIu",
+                            CategoryId = "rlCbxfOimxf",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9716),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1597,9 +1634,9 @@ namespace SmartBuyApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6PP0XVtJ8r2",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6851),
+                            Id = "zc78GMhVxs5",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9795),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1612,9 +1649,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "DbZT4KbYNkF",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6853),
+                            Id = "aKwqGBZLXNA",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9803),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1627,9 +1664,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "q7nhQhGIkaU",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6855),
+                            Id = "Iwl-MnDxAzC",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9812),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1642,9 +1679,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "IhC_6QMeKpB",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6858),
+                            Id = "lT14V2S-Y5i",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9821),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1657,9 +1694,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "YQSs2j4R7Sm",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6861),
+                            Id = "hCK3ReredZ8",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9827),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1672,9 +1709,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "mDrE6YJwkle",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6862),
+                            Id = "D5gbCXTfyLT",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9835),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1687,9 +1724,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "SNlDrtKa6S-",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6865),
+                            Id = "L3u_oaaLAmQ",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9845),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1702,9 +1739,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "6ySNErAfzFH",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6867),
+                            Id = "TztEFnBXb-j",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9853),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1717,9 +1754,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "XV2aet2fyF3",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6868),
+                            Id = "mhkfEpBBWpF",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9861),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1732,9 +1769,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "k7W1KND1YIH",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6870),
+                            Id = "zSHHW9CUEQA",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9869),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1747,9 +1784,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "uT8GuZIwvsa",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6872),
+                            Id = "cfsb0_yfU-s",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9879),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1762,9 +1799,9 @@ namespace SmartBuyApi.Migrations
                         },
                         new
                         {
-                            Id = "isB3Yw8qjmQ",
-                            CategoryId = "Vx2sgsEBKpu",
-                            DateCreated = new DateTime(2023, 8, 8, 16, 9, 31, 850, DateTimeKind.Local).AddTicks(6874),
+                            Id = "cW8mEdX69oO",
+                            CategoryId = "EnDKUD--DDw",
+                            DateCreated = new DateTime(2023, 9, 11, 13, 34, 47, 5, DateTimeKind.Local).AddTicks(9886),
                             DateLastEdit = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Доооооовгий опис",
                             Dicount = 0,
@@ -1897,6 +1934,17 @@ namespace SmartBuyApi.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CartItem", b =>
+                {
+                    b.HasOne("SmartBuyApi.Data.DataBase.Tables.Cart", "Cart")
+                        .WithMany("Items")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+                });
+
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
                 {
                     b.HasOne("SmartBuyApi.Data.DataBase.Entities.GlobalCategoryEntity", "GlobalCategory")
@@ -1947,6 +1995,11 @@ namespace SmartBuyApi.Migrations
 
                     b.Navigation("Image")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.Cart", b =>
+                {
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("SmartBuyApi.Data.DataBase.Tables.CategoryEntity", b =>
